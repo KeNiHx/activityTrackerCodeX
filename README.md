@@ -3,6 +3,8 @@
 #### COMP 3504 Project, Fall 2018
 ##### Mount Royal University
 
+-------------------------------------------
+
 **MAIN FEATURES**
 
 - Easy way to track and review how their movement for the day
