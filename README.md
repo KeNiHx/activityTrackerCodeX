@@ -1,7 +1,7 @@
 #  move.
-## Team CodeX
-### COMP 3504 Project, Fall 2018
-#### Mount Royal University
+### Team CodeX
+#### COMP 3504 Project, Fall 2018
+##### Mount Royal University
 
 **MAIN FEATURES**
 
