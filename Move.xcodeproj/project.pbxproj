@@ -14,6 +14,7 @@
 		9B61A6CC219A6BCB0052F6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B61A6CB219A6BCB0052F6D7 /* Assets.xcassets */; };
 		9B61A6CF219A6BCB0052F6D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61A6CD219A6BCB0052F6D7 /* LaunchScreen.storyboard */; };
 		9B61A6DA219A6BCB0052F6D7 /* MoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6D9219A6BCB0052F6D7 /* MoveTests.swift */; };
+		9B61A6EA219A74010052F6D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6E9219A74010052F6D7 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		9B61A6D5219A6BCB0052F6D7 /* MoveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B61A6D9219A6BCB0052F6D7 /* MoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveTests.swift; sourceTree = "<group>"; };
 		9B61A6DB219A6BCB0052F6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B61A6E9219A74010052F6D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +63,13 @@
 		9B61A6B5219A6BCA0052F6D7 = {
 			isa = PBXGroup;
 			children = (
+				9B61A6E8219A73F10052F6D7 /* Constructors */,
+				9B61A6E4219A6C890052F6D7 /* Storyboards */,
+				9B61A6E5219A6C930052F6D7 /* Controllers */,
 				9B61A6C0219A6BCA0052F6D7 /* Move */,
 				9B61A6D8219A6BCB0052F6D7 /* MoveTests */,
 				9B61A6BF219A6BCA0052F6D7 /* Products */,
+				9B698028219BCEEA006686A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,10 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */,
-				9B61A6C3219A6BCA0052F6D7 /* ViewController.swift */,
-				9B61A6C5219A6BCA0052F6D7 /* Main.storyboard */,
 				9B61A6CB219A6BCB0052F6D7 /* Assets.xcassets */,
-				9B61A6CD219A6BCB0052F6D7 /* LaunchScreen.storyboard */,
 				9B61A6D0219A6BCB0052F6D7 /* Info.plist */,
 				9B61A6C8219A6BCA0052F6D7 /* Move.xcdatamodeld */,
 			);
@@ -97,6 +100,38 @@
 				9B61A6DB219A6BCB0052F6D7 /* Info.plist */,
 			);
 			path = MoveTests;
+			sourceTree = "<group>";
+		};
+		9B61A6E4219A6C890052F6D7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9B61A6C5219A6BCA0052F6D7 /* Main.storyboard */,
+				9B61A6CD219A6BCB0052F6D7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B61A6C3219A6BCA0052F6D7 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B61A6E8219A73F10052F6D7 /* Constructors */ = {
+			isa = PBXGroup;
+			children = (
+				9B61A6E9219A74010052F6D7 /* User.swift */,
+			);
+			path = Constructors;
+			sourceTree = "<group>";
+		};
+		9B698028219BCEEA006686A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +184,11 @@
 				TargetAttributes = {
 					9B61A6BD219A6BCA0052F6D7 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					9B61A6D4219A6BCB0052F6D7 = {
 						CreatedOnToolsVersion = 10.1;
@@ -200,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B61A6EA219A74010052F6D7 /* User.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* ViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
 				9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */,
@@ -367,6 +408,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FXUS55NRQ7;
 				INFOPLIST_FILE = Move/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,7 +416,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CodeX.Move;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -385,6 +427,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FXUS55NRQ7;
 				INFOPLIST_FILE = Move/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,7 +435,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CodeX.Move;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
