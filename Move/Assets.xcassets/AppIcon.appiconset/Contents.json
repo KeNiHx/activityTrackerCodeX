@@ -3,55 +3,55 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "App Icon_Notification@2x.png",
+      "filename" : "Move_Notification@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "App Icon_Notification@3x.png",
+      "filename" : "Move_Notification@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "App Icon_Settings@2x.png",
+      "filename" : "Move_Settings@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "App Icon_Settings@3x.png",
+      "filename" : "Move_Settings@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "App Icon_Spotlight@2x.png",
+      "filename" : "Move_Spotlight@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "App Icon_Spotlight@3x.png",
+      "filename" : "Move_Spotlight@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "App Icon_App@2x.png",
+      "filename" : "Move_App@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "App Icon_App@3x.png",
+      "filename" : "Move_App@3x.png",
       "scale" : "3x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "App Icon.png",
+      "filename" : "Move_Store.png",
       "scale" : "1x"
     }
   ],
