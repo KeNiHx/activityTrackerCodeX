@@ -11,6 +11,7 @@ import Foundation
 import UIKit
 
 struct User {
+    
     var lastName: String = ""
     var firstName: String = ""
     var gender: Character? = nil
@@ -19,6 +20,7 @@ struct User {
     var profilePic: UIImage? = nil
     var birthday: Date? = nil
     
+    // MARK: Setters
     mutating func setGender(sex: Character) {
         self.gender = sex
     }
@@ -33,6 +35,10 @@ struct User {
     
     mutating func setHeight(height: Double) {
         self.height = height
+    }
+    
+    mutating func setProfilePic(photo: UIImage) {
+        self.profilePic = photo
     }
     
     // MARK: Height conversion to Imperial
