@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B34546A219D22A30035DD86 /* Typo Grotesk Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B345466219D21B50035DD86 /* Typo Grotesk Black.otf */; };
-		9B34546B219D22A30035DD86 /* Typo Grotesk Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B345469219D21B50035DD86 /* Typo Grotesk Bold.otf */; };
-		9B34546C219D22A30035DD86 /* Typo Grotesk Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B345467219D21B50035DD86 /* Typo Grotesk Thin.otf */; };
-		9B34546D219D22A30035DD86 /* Typo Grotesk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B345468219D21B50035DD86 /* Typo Grotesk.otf */; };
+		9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34546E219D2BFA0035DD86 /* SignInViewController.swift */; };
 		9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */; };
 		9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */; };
 		9B61A6C7219A6BCA0052F6D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61A6C5219A6BCA0052F6D7 /* Main.storyboard */; };
@@ -32,10 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B345466219D21B50035DD86 /* Typo Grotesk Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Typo Grotesk Black.otf"; sourceTree = "<group>"; };
-		9B345467219D21B50035DD86 /* Typo Grotesk Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Typo Grotesk Thin.otf"; sourceTree = "<group>"; };
-		9B345468219D21B50035DD86 /* Typo Grotesk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Typo Grotesk.otf"; sourceTree = "<group>"; };
-		9B345469219D21B50035DD86 /* Typo Grotesk Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Typo Grotesk Bold.otf"; sourceTree = "<group>"; };
+		9B34546E219D2BFA0035DD86 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = Controllers/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
 		9B61A6BE219A6BCA0052F6D7 /* Move.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Move.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -69,23 +63,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9B345465219D21960035DD86 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				9B345466219D21B50035DD86 /* Typo Grotesk Black.otf */,
-				9B345469219D21B50035DD86 /* Typo Grotesk Bold.otf */,
-				9B345467219D21B50035DD86 /* Typo Grotesk Thin.otf */,
-				9B345468219D21B50035DD86 /* Typo Grotesk.otf */,
-			);
-			name = Fonts;
-			path = "New Group1";
-			sourceTree = "<group>";
-		};
 		9B61A6B5219A6BCA0052F6D7 = {
 			isa = PBXGroup;
 			children = (
-				9B345465219D21960035DD86 /* Fonts */,
-				9B698030219D1901006686A8 /* Animations */,
 				9B61A6E8219A73F10052F6D7 /* Constructors */,
 				9B61A6E4219A6C890052F6D7 /* Storyboards */,
 				9B61A6E5219A6C930052F6D7 /* Controllers */,
@@ -138,6 +118,7 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B34546E219D2BFA0035DD86 /* SignInViewController.swift */,
 				9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
@@ -156,14 +137,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9B698030219D1901006686A8 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Animations;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,13 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B34546C219D22A30035DD86 /* Typo Grotesk Thin.otf in Resources */,
 				9B61A6CF219A6BCB0052F6D7 /* LaunchScreen.storyboard in Resources */,
-				9B34546A219D22A30035DD86 /* Typo Grotesk Black.otf in Resources */,
 				9B61A6CC219A6BCB0052F6D7 /* Assets.xcassets in Resources */,
-				9B34546D219D22A30035DD86 /* Typo Grotesk.otf in Resources */,
 				9B61A6C7219A6BCA0052F6D7 /* Main.storyboard in Resources */,
-				9B34546B219D22A30035DD86 /* Typo Grotesk Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +248,7 @@
 				9B61A6EA219A74010052F6D7 /* User.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
+				9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */,
 				9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
