@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,30 +14,21 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background" translatesAutoresizingMaskIntoConstraints="NO" id="cNF-MS-YwQ">
-                                <rect key="frame" x="-19.666666666666657" y="-114.66666666666669" width="453.33333333333326" height="965.33333333333348"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Move-Icon-White" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-Kg-nw1">
-                                <rect key="frame" x="177" y="164" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon White Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-Kg-nw1">
+                                <rect key="frame" x="157.5" y="259" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="4bL-LF-abH"/>
-                                    <constraint firstAttribute="width" constant="60" id="JDc-Ai-Y27"/>
+                                    <constraint firstAttribute="width" constant="60" id="9Ff-QQ-zsB"/>
+                                    <constraint firstAttribute="height" constant="60" id="QXh-QY-cXq"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Gry-Kg-nw1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DES-Uv-Oqc"/>
-                            <constraint firstItem="cNF-MS-YwQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-19.5" id="EsF-3H-yml"/>
-                            <constraint firstAttribute="trailing" secondItem="cNF-MS-YwQ" secondAttribute="trailing" constant="-19.5" id="MR5-Ub-9yR"/>
-                            <constraint firstAttribute="bottom" secondItem="cNF-MS-YwQ" secondAttribute="bottom" constant="-114.5" id="RIh-Uw-cj9"/>
-                            <constraint firstItem="Gry-Kg-nw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="144" id="Rsq-xk-rUW"/>
-                            <constraint firstItem="cNF-MS-YwQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bnD-Vq-Kc0"/>
-                            <constraint firstItem="cNF-MS-YwQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ddl-Sc-pxf"/>
-                            <constraint firstItem="cNF-MS-YwQ" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-114.5" id="pX5-cy-QLD"/>
+                            <constraint firstItem="Gry-Kg-nw1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="239" id="gcJ-pf-xOs"/>
+                            <constraint firstItem="Gry-Kg-nw1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hqL-uz-jwv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -48,7 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Move-Icon-White" width="1086.239990234375" height="1049.280029296875"/>
-        <image name="splash_background" width="414" height="896.15997314453125"/>
+        <image name="App Icon White Launch Screen" width="120.5" height="120.5"/>
     </resources>
 </document>
