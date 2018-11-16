@@ -50,21 +50,46 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             txtPassword.becomeFirstResponder()
         }
         if textField == txtPassword {
-            // When Return key is pressed while in Password field
+            // When Return key is pressed while in password field, the frame goes back to normal and signs in the user
             textField.resignFirstResponder()
             txtPassword.resignFirstResponder()
             view.frame.origin.y = 0
+            
+            // Check user first if it exists or not
+            checkUserExistence()
         }
         return true
     }
+    
+    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+        if sender.text!.count >= 1 && sender.text!.count <= 4 {
+            lblWarning.text = "Password is too short."
+            btnContinue.isEnabled = false
+        }
+        else if sender.text!.isEmpty {
+            lblWarning.text = ""
+            btnContinue.isEnabled = false
+        } else {
+            lblWarning.text = ""
+            btnContinue.isEnabled = true
+        }
+    }
+    
+    
     
     // MARK: Setting Up UI Design
     private func setupUI() {
         txtUsername.delegate = self
         txtPassword.delegate = self
+        txtPassword.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: UIControl.Event.editingChanged)
         
         btnContinue.layer.shadowOpacity = 0.2
         btnContinue.layer.shadowOffset = CGSize(width: 1, height: 2)
         btnContinue.layer.shadowRadius = 15
+    }
+    
+    // MARK: Checking user's account
+    private func checkUserExistence() {
+        
     }
 }
