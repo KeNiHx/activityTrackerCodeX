@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34546E219D2BFA0035DD86 /* SignInViewController.swift */; };
 		9B345472219E3E0E0035DD86 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345471219E3E0E0035DD86 /* Workout.swift */; };
+		9B345474219E743C0035DD86 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345473219E743C0035DD86 /* RegisterViewController.swift */; };
 		9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */; };
 		9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */; };
 		9B61A6C7219A6BCA0052F6D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61A6C5219A6BCA0052F6D7 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		9B34546E219D2BFA0035DD86 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = Controllers/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
 		9B345471219E3E0E0035DD86 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		9B345473219E743C0035DD86 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9B61A6BE219A6BCA0052F6D7 /* Move.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Move.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B345473219E743C0035DD86 /* RegisterViewController.swift */,
 				9B34546E219D2BFA0035DD86 /* SignInViewController.swift */,
 				9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */,
 			);
@@ -250,6 +253,7 @@
 			files = (
 				9B61A6EA219A74010052F6D7 /* User.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
+				9B345474219E743C0035DD86 /* RegisterViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
 				9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */,
 				9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */,
