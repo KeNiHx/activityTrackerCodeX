@@ -10,7 +10,7 @@ import XCTest
 @testable import Move
 
 class MoveTests: XCTestCase {
-    
+    /*
     // User Class
     let user = User()
     
@@ -37,7 +37,7 @@ class MoveTests: XCTestCase {
         let value = user.getWeightInMetric(weight: 70.31)
         XCTAssertEqual(value, 155.0)
     }
-
+    */
     /*
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
