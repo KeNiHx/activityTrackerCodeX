@@ -1,6 +1,7 @@
 //
 //  WelcomeViewViewController.swift
-//  Move
+//  The first controller that shows when opening the app for the first time.
+//  This controller should hide when a user has already logged in before.
 //
 //  Created by Lee Palisoc on 2018-11-12.
 //  Copyright © 2018 CodeX. All rights reserved.
@@ -10,11 +11,13 @@ import UIKit
 
 class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
+    // OUTLETS
     @IBOutlet weak var btnContinue: UIButton!
     @IBOutlet weak var lblWarning: UILabel!
     @IBOutlet weak var txtUsername: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
+    // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -61,7 +64,8 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+    // MARK: Listener for making sure password is more than 4 characters
+    @IBAction func passwordEditingChanged(_ sender: UITextField) {
         if sender.text!.count >= 1 && sender.text!.count <= 4 {
             lblWarning.text = "Password is too short."
             btnContinue.isEnabled = false
@@ -75,14 +79,16 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
     // MARK: Setting Up UI Design
     private func setupUI() {
+        // Adding delegates
         txtUsername.delegate = self
         txtPassword.delegate = self
-        txtPassword.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: UIControl.Event.editingChanged)
         
+        // Helper for editing listener
+        txtPassword.addTarget(self, action: #selector(passwordEditingChanged(_:)), for: UIControl.Event.editingChanged)
+        
+        // Designing the Continue button
         btnContinue.layer.shadowOpacity = 0.2
         btnContinue.layer.shadowOffset = CGSize(width: 1, height: 2)
         btnContinue.layer.shadowRadius = 15
