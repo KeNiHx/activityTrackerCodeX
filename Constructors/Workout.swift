@@ -1,6 +1,6 @@
 //
 //  Workout.swift
-//  Constructor for a workout.
+//  Constructor for a workout when starting a new one.
 //
 //  Created by Lee Palisoc on 2018-11-15.
 //  Copyright © 2018 CodeX. All rights reserved.
