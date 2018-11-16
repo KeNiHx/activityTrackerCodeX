@@ -21,7 +21,6 @@ class RegisterViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         lblDescription.sizeToFit()
         
-        
-        /// My comment too.
+        //test
     }
 }
