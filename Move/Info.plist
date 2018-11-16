@@ -24,13 +24,6 @@
 	<string>The app needs your permission to use your location when in usage in order to record your current location while doing your workout.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>The app needs to track your motion activity in order to provide you information about your movement during your session or throughout the day.</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Typo Grotesk Black.otf</string>
-		<string>Typo Grotesk Bold.otfTypo Grotesk Bold.otfTypo Grotesk Thin.otfTypo Grotesk Bold.otf</string>
-		<string>Typo Grotesk Thin.otfTypo Grotesk Bold.otfTypo Grotesk Thin.otfTypo Grotesk Thin.otf</string>
-		<string>Typo Grotesk.otfTypo Grotesk Bold.otfTypo Grotesk Thin.otfTypo Grotesk.otf</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
