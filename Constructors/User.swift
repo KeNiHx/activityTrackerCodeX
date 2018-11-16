@@ -12,13 +12,20 @@ import UIKit
 
 struct User {
     
-    var lastName: String = ""
-    var firstName: String = ""
+    var lastName: String
+    var firstName: String
+    var username: String
+    var password: String
+    
+    // Optional Info
     var gender: Character? = nil
     var weight: Double? = nil
     var height: Double? = nil
     var profilePic: UIImage? = nil
     var birthday: Date? = nil
+    
+    // Optional Goals
+    var calorieGoal: Double? = nil
     
     // MARK: Setters
     mutating func setGender(sex: Character) {
