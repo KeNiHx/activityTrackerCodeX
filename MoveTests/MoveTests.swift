@@ -10,9 +10,8 @@ import XCTest
 @testable import Move
 
 class MoveTests: XCTestCase {
-    /*
     // User Class
-    let user = User()
+    let user = User(lastName: "Palisoc", firstName: "Lee", username: "leepalisoc", password: "password", gender: "M", weight: nil, height: nil, profilePic: nil, birthday: nil, calorieGoal: nil)
     
     // TEST 1: If function for converting height to Imperial returns a value
     func testIfHeightReturnsAValue() {
@@ -28,7 +27,7 @@ class MoveTests: XCTestCase {
     
     // TEST 3: If the function for converting weight to Imperial returns the right value
     func testIfWeightToImperialIsRight() {
-        let value = user.getWeightInImperial(weight: 155.0)
+        let value = user.getWeightInImperial(weight: 155)
         XCTAssertEqual(value, 70.3)
     }
     
@@ -37,7 +36,6 @@ class MoveTests: XCTestCase {
         let value = user.getWeightInMetric(weight: 70.31)
         XCTAssertEqual(value, 155.0)
     }
-    */
     /*
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
