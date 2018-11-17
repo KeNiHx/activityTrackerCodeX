@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C9443BCB6DD8B909E82C932 /* Pods_Move.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C41D2FDF8999B7D441A92E6 /* Pods_Move.framework */; };
-		9510C7AD0BEA69B5D3B81337 /* Pods_MoveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D3C46A0DFC2F936356A09EB /* Pods_MoveTests.framework */; };
+		2465901D1A44308CE8B2DF73 /* Pods_MoveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */; };
+		7B760F265BE32BFF24894C96 /* Pods_Move.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F2260FD2AD86A56763BC32 /* Pods_Move.framework */; };
 		9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34546E219D2BFA0035DD86 /* SignInViewController.swift */; };
 		9B345472219E3E0E0035DD86 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345471219E3E0E0035DD86 /* Workout.swift */; };
-		9B345474219E743C0035DD86 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345473219E743C0035DD86 /* RegisterViewController.swift */; };
+		9B345474219E743C0035DD86 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345473219E743C0035DD86 /* RegisterPageViewController.swift */; };
+		9B4FE9FB219F70D300B9ECF9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4FE9FA219F70D300B9ECF9 /* RegisterViewController.swift */; };
 		9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */; };
 		9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */; };
 		9B61A6C7219A6BCA0052F6D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61A6C5219A6BCA0052F6D7 /* Main.storyboard */; };
@@ -35,12 +36,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C41D2FDF8999B7D441A92E6 /* Pods_Move.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Move.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D3C46A0DFC2F936356A09EB /* Pods_MoveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80F2260FD2AD86A56763BC32 /* Pods_Move.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Move.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94436544EE07CCA9023FE196 /* Pods-MoveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B34546E219D2BFA0035DD86 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = Controllers/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
 		9B345471219E3E0E0035DD86 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		9B345473219E743C0035DD86 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9B345473219E743C0035DD86 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
+		9B4FE9F8219F706E00B9ECF9 /* TextFieldEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TextFieldEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4FE9FA219F70D300B9ECF9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9B61A6BE219A6BCA0052F6D7 /* Move.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Move.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -65,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C9443BCB6DD8B909E82C932 /* Pods_Move.framework in Frameworks */,
+				7B760F265BE32BFF24894C96 /* Pods_Move.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9510C7AD0BEA69B5D3B81337 /* Pods_MoveTests.framework in Frameworks */,
+				2465901D1A44308CE8B2DF73 /* Pods_MoveTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +97,6 @@
 		9B61A6B5219A6BCA0052F6D7 = {
 			isa = PBXGroup;
 			children = (
-				9BB05B47219F661D003D1B9A /* Animations */,
 				9B61A6E8219A73F10052F6D7 /* Constructors */,
 				9B61A6E4219A6C890052F6D7 /* Storyboards */,
 				9B61A6E5219A6C930052F6D7 /* Controllers */,
@@ -149,7 +151,8 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9B345473219E743C0035DD86 /* RegisterViewController.swift */,
+				9B345473219E743C0035DD86 /* RegisterPageViewController.swift */,
+				9B4FE9FA219F70D300B9ECF9 /* RegisterViewController.swift */,
 				9B34546E219D2BFA0035DD86 /* SignInViewController.swift */,
 				9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */,
 			);
@@ -168,17 +171,11 @@
 		9B698028219BCEEA006686A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0C41D2FDF8999B7D441A92E6 /* Pods_Move.framework */,
-				7D3C46A0DFC2F936356A09EB /* Pods_MoveTests.framework */,
+				9B4FE9F8219F706E00B9ECF9 /* TextFieldEffects.framework */,
+				80F2260FD2AD86A56763BC32 /* Pods_Move.framework */,
+				2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9BB05B47219F661D003D1B9A /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +189,7 @@
 				9B61A6BA219A6BCA0052F6D7 /* Sources */,
 				9B61A6BB219A6BCA0052F6D7 /* Frameworks */,
 				9B61A6BC219A6BCA0052F6D7 /* Resources */,
-				0CFA56C41986C2457DFC8AA9 /* [CP] Embed Pods Frameworks */,
+				71E2E05EED035F7F85D92DBE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,7 +285,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CFA56C41986C2457DFC8AA9 /* [CP] Embed Pods Frameworks */ = {
+		71E2E05EED035F7F85D92DBE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -298,6 +295,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Move/Pods-Move-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -305,6 +303,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,9 +362,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B4FE9FB219F70D300B9ECF9 /* RegisterViewController.swift in Sources */,
 				9B61A6EA219A74010052F6D7 /* User.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
-				9B345474219E743C0035DD86 /* RegisterViewController.swift in Sources */,
+				9B345474219E743C0035DD86 /* RegisterPageViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
 				9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */,
 				9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */,

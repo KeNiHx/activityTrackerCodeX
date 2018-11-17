@@ -48,9 +48,11 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
   - Firebase/Core
+  - TextFieldEffects
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -61,6 +63,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
+    - TextFieldEffects
 
 SPEC CHECKSUMS:
   Firebase: 9190018e296139d938b99521cde0c15a6e8d2946
@@ -70,7 +73,8 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 037551395e274b7f0a9f2f38264a86d6c1b018e5
+PODFILE CHECKSUM: d9e46912dacc13b78f05f8ef3a015c9214a99351
 
 COCOAPODS: 1.5.3
