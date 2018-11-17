@@ -12,6 +12,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="loginBoardID" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Move" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -140,7 +141,6 @@
                         <outlet property="txtUsername" destination="S8x-1r-yGJ" id="k4h-ls-xfh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="129.98500749625188"/>
         </scene>
@@ -179,6 +179,10 @@ Sign up to continue using the app.</string>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNp-dU-rlO">
                                 <rect key="frame" x="60" y="481" width="200" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="V90-ur-1lc"/>
+                                    <constraint firstAttribute="width" constant="200" id="hcQ-yU-veH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <state key="normal" title="Continue" backgroundImage="Background_Button">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -279,22 +283,20 @@ Sign up to continue using the app.</string>
                         <color key="backgroundColor" red="0.21568627450980393" green="0.27843137254901962" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="S8n-Di-tZC" firstAttribute="leading" secondItem="Ixr-VO-zXI" secondAttribute="leading" id="2a6-1N-Xqk"/>
-                            <constraint firstItem="dNp-dU-rlO" firstAttribute="leading" secondItem="dsY-ZU-kSL" secondAttribute="leading" constant="60" id="3TH-XV-32M"/>
                             <constraint firstItem="TqU-S6-3Vs" firstAttribute="centerX" secondItem="d6Q-hT-iR1" secondAttribute="centerX" id="3Uk-LY-BKO"/>
                             <constraint firstItem="z5A-gk-y92" firstAttribute="top" secondItem="TqU-S6-3Vs" secondAttribute="bottom" constant="8" symbolic="YES" id="4Ij-YT-893"/>
                             <constraint firstItem="gmh-Wt-hPO" firstAttribute="top" secondItem="S8n-Di-tZC" secondAttribute="bottom" constant="28" id="4Wc-IV-hri"/>
                             <constraint firstItem="t2Q-cE-2Hw" firstAttribute="top" secondItem="z5A-gk-y92" secondAttribute="bottom" constant="8" symbolic="YES" id="7pW-Rr-mUC"/>
                             <constraint firstItem="qpZ-iG-HWu" firstAttribute="top" secondItem="dsY-ZU-kSL" secondAttribute="top" constant="20" id="92x-cX-FDR"/>
+                            <constraint firstItem="dNp-dU-rlO" firstAttribute="centerX" secondItem="d6Q-hT-iR1" secondAttribute="centerX" id="9Vh-bm-DSa"/>
                             <constraint firstItem="z5A-gk-y92" firstAttribute="centerX" secondItem="d6Q-hT-iR1" secondAttribute="centerX" id="E0q-8S-mt0"/>
-                            <constraint firstItem="dNp-dU-rlO" firstAttribute="centerX" secondItem="t2Q-cE-2Hw" secondAttribute="centerX" id="Odr-Gf-dtC"/>
                             <constraint firstItem="Ixr-VO-zXI" firstAttribute="leading" secondItem="dsY-ZU-kSL" secondAttribute="leading" constant="29" id="Oi7-on-Xnw"/>
-                            <constraint firstItem="dNp-dU-rlO" firstAttribute="top" secondItem="t2Q-cE-2Hw" secondAttribute="bottom" constant="34" id="PSp-mW-g5r"/>
                             <constraint firstItem="t2Q-cE-2Hw" firstAttribute="centerX" secondItem="d6Q-hT-iR1" secondAttribute="centerX" id="QDQ-Vl-U6r"/>
-                            <constraint firstItem="dsY-ZU-kSL" firstAttribute="bottom" secondItem="dNp-dU-rlO" secondAttribute="bottom" constant="50" id="UW4-UG-Lic"/>
                             <constraint firstItem="S8n-Di-tZC" firstAttribute="top" secondItem="Ixr-VO-zXI" secondAttribute="bottom" constant="8" symbolic="YES" id="WYK-6N-mvp"/>
                             <constraint firstItem="gmh-Wt-hPO" firstAttribute="centerX" secondItem="d6Q-hT-iR1" secondAttribute="centerX" id="WYk-c9-SXf"/>
                             <constraint firstItem="S8n-Di-tZC" firstAttribute="top" secondItem="d6Q-hT-iR1" secondAttribute="top" constant="135" id="cuK-XJ-va5"/>
                             <constraint firstItem="TqU-S6-3Vs" firstAttribute="top" secondItem="gmh-Wt-hPO" secondAttribute="bottom" constant="8" symbolic="YES" id="dQb-hW-8aK"/>
+                            <constraint firstItem="dNp-dU-rlO" firstAttribute="top" secondItem="t2Q-cE-2Hw" secondAttribute="bottom" constant="34" id="iUs-Wh-ViN"/>
                             <constraint firstItem="dsY-ZU-kSL" firstAttribute="trailing" secondItem="qpZ-iG-HWu" secondAttribute="trailing" constant="25" id="rG4-V6-utU"/>
                             <constraint firstItem="S8n-Di-tZC" firstAttribute="trailing" secondItem="qpZ-iG-HWu" secondAttribute="trailing" id="tGo-QU-Rki"/>
                         </constraints>
@@ -342,7 +344,7 @@ Sign up to continue using the app.</string>
                     <view key="view" contentMode="scaleToFill" id="D5N-2W-KxN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.69706108320000004" blue="0.0001922522367" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.32107801168561645" green="0.40972963670000001" blue="0.71459812739999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="c2k-h3-QfA"/>
                     </view>
                 </viewController>
