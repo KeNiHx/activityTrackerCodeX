@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon White Launch Screen" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-Kg-nw1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App_Icon_White" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-Kg-nw1">
                                 <rect key="frame" x="157.5" y="259" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="9Ff-QQ-zsB"/>
@@ -39,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="App Icon White Launch Screen" width="120.5" height="120.5"/>
+        <image name="App_Icon_White" width="120.5" height="120.5"/>
     </resources>
 </document>
