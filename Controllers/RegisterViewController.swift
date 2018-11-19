@@ -15,6 +15,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var btnContinue: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var lblSubtitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: Keyboard events
-    
     // Event for pressing Return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtUsername {
@@ -81,6 +82,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         txtPassword.delegate = self
         txtConfirmPassword.delegate = self
         
+        // Designing the Continue button
+        btnContinue.layer.shadowOpacity = 0.2
+        btnContinue.layer.shadowOffset = CGSize(width: 1, height: 2)
+        btnContinue.layer.shadowRadius = 15
+        
+        btnCancel.layer.shadowOpacity = 0.2
+        btnCancel.layer.shadowOffset = CGSize(width: 1, height: 2)
+        btnCancel.layer.shadowRadius = 15
+        
+        // Sizing the description label
+        lblSubtitle.sizeToFit()
+        
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
@@ -107,5 +120,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // MARK: Action for "Done" button on the keyboard.
     @objc func doneButtonAction() {
         self.view.endEditing(true)
+    }
+    
+    // MARK: Action for Cancel button
+    @IBAction func btnCancel(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
 }

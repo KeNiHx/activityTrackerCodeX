@@ -21,8 +21,8 @@
 		9B61A6CF219A6BCB0052F6D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61A6CD219A6BCB0052F6D7 /* LaunchScreen.storyboard */; };
 		9B61A6DA219A6BCB0052F6D7 /* MoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6D9219A6BCB0052F6D7 /* MoveTests.swift */; };
 		9B61A6EA219A74010052F6D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6E9219A74010052F6D7 /* User.swift */; };
-		CF1DB957219F61C000214807 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF1DB956219F61C000214807 /* GoogleService-Info.plist */; };
-		CF1DB958219F61C000214807 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF1DB956219F61C000214807 /* GoogleService-Info.plist */; };
+		9B975ED621A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
+		9B975ED721A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +57,10 @@
 		9B61A6DB219A6BCB0052F6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B61A6E9219A74010052F6D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B69802B219BD2DC006686A8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1085E8A51BB09673585F1E7 /* Pods-MoveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4C4361983FED386E296528 /* Pods-Move.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B0DE5EA4C8EB74BD9D422C /* Pods-Move.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.release.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.release.xcconfig"; sourceTree = "<group>"; };
-		CF1DB956219F61C000214807 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,8 +124,8 @@
 				9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */,
 				9B61A6CB219A6BCB0052F6D7 /* Assets.xcassets */,
 				9B61A6D0219A6BCB0052F6D7 /* Info.plist */,
-				CF1DB956219F61C000214807 /* GoogleService-Info.plist */,
 				9B61A6C8219A6BCA0052F6D7 /* Move.xcdatamodeld */,
+				9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */,
 			);
 			path = Move;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B61A6CF219A6BCB0052F6D7 /* LaunchScreen.storyboard in Resources */,
-				CF1DB957219F61C000214807 /* GoogleService-Info.plist in Resources */,
+				9B975ED621A0B04800A9D46B /* GoogleService-Info.plist in Resources */,
 				9B61A6CC219A6BCB0052F6D7 /* Assets.xcassets in Resources */,
 				9B61A6C7219A6BCA0052F6D7 /* Main.storyboard in Resources */,
 			);
@@ -278,7 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF1DB958219F61C000214807 /* GoogleService-Info.plist in Resources */,
+				9B975ED721A0B04800A9D46B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +294,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Move/Pods-Move-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -302,6 +303,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",

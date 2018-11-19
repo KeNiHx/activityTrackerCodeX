@@ -8,14 +8,22 @@
 //
 
 import UIKit
+import Firebase
 
 class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
-    // OUTLETS
+    /** @IBOutlets
+        @brief Outlets in the view controller
+     */
     @IBOutlet weak var btnContinue: UIButton!
     @IBOutlet weak var lblWarning: UILabel!
-    @IBOutlet weak var txtUsername: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    
+    /** @var handle
+        @brief The handler for the auth state listener, to allow cancelling later.
+     */
+    var handle: AuthStateDidChangeListenerHandle?
     
     // MAIN
     override func viewDidLoad() {
@@ -39,7 +47,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
     // Event for pressing Return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == txtUsername {
+        if textField == txtEmail {
             // When Return key is pressed, the focus goes to the next field
             txtPassword.becomeFirstResponder()
         }
@@ -48,7 +56,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             txtPassword.resignFirstResponder()
             
             // Check user first if it exists or not
-            checkUserExistence()
+            checkUserExistence(email: txtEmail.text!, password: txtPassword.text!)
         }
         return true
     }
@@ -86,7 +94,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // MARK: Setting Up UI, Adding Delegates, Tap Gestures
     private func setupUI() {
         // Adding delegates
-        txtUsername.delegate = self
+        txtEmail.delegate = self
         txtPassword.delegate = self
         
         // Helper for editing listener
@@ -114,7 +122,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         toolbar.sizeToFit()
         
         // Setting the toolbar as inputAccessoryView for every element that needs it
-        self.txtUsername.inputAccessoryView = toolbar
+        self.txtEmail.inputAccessoryView = toolbar
         self.txtPassword.inputAccessoryView = toolbar
     }
     
@@ -123,8 +131,35 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    // FIREBASE
     // MARK: Checking user's account
-    private func checkUserExistence() {
-        
+    private func checkUserExistence(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                switch errorCode {
+                case .wrongPassword:
+                    self.lblWarning.text = "You entered the wrong password. Try again."
+                case .invalidEmail:
+                    self.lblWarning.text = "You entered an invalid email. Try again."
+                case .accountExistsWithDifferentCredential:
+                    self.lblWarning.text = "Email and password don't match."
+                default:
+                    print(error.debugDescription)
+                    self.lblWarning.text = "Something went wrong. Try again."
+                }
+            }
+        }
+    }
+    
+    // viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            print("WHAT IS THIS!?")
+        }
+    }
+    
+    // viewWillDisappear
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle!)
     }
 }
