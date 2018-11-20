@@ -27,8 +27,7 @@ class RegisterPageViewController: UIPageViewController {
         self.dataSource = self
         self.delegate = self
         
-        if let firstVC = pages.first
-        {
+        if let firstVC = pages.first {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
     }

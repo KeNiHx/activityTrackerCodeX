@@ -28,20 +28,11 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Handle checker when the user has already signed in before.
-        // Otherwise, the login page shows up.
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            // If the user has already signed in, skip this view controller and show TodayViewController
-            if Auth.auth().currentUser != nil {
-                let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
-                self.dismiss(animated: true, completion: nil)
-                self.present(todayView, animated: true, completion: nil)
-            } else {
-                self.setupUI()
-                self.addKeyboardListeners()
-            }
-        }
+    }
+    
+    // MARK: Changing the status bar's style to colour white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: Start listening for keyboard hide/show events
@@ -66,6 +57,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         if textField == txtPassword {
             // When Return key is pressed while in password field, the frame goes back to normal and signs in the user
             txtPassword.resignFirstResponder()
+            
+            // Label to let the user know s/he is being signed in.
+            lblWarning.text = "Logging in..."
             
             // Check user first if it exists or not
             checkUserExistence(email: txtEmail.text!, password: txtPassword.text!)
@@ -165,10 +159,11 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
                         registerView.passedDescription = """
                         Hello, \(self.txtEmail.text!)! We noticed that you don't have an account yet.
                         
-                        Just choose a strong password below to sign up for an account.
+                        Just re-enter your password again and press Continue.
                         """
                         
                         registerView.passedEmail = self.txtEmail.text!
+                        registerView.passedPassword = self.txtPassword.text!
                         
                         self.present(registerView, animated: true, completion: nil)
                         
@@ -182,16 +177,42 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // viewWillAppear
+    // MARK: Action for signing in user
+    @IBAction func btnSignIn(_ sender: UIButton) {
+        // Label for the action
+        lblWarning.text = "Logging in..."
+        
+        // Check if the user exists
+        checkUserExistence(email: txtEmail.text!, password: txtPassword.text!)
+    }
+    
+    
+    // The controller's viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             print("Starting @var handle listener...")
+            // If the user has already signed in, skip this view controller and show TodayViewController
+            if Auth.auth().currentUser != nil {
+                let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
+                self.dismiss(animated: true, completion: nil)
+                self.present(todayView, animated: true, completion: nil)
+            }
+            // Otherwise, show the login page
+            else {
+                self.setupUI()
+                self.addKeyboardListeners()
+            }
         }
     }
     
-    // viewWillDisappear
+    // The controller's viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
         print("Removing @var handle listener...")
+        
+        // Resetting the fields
+        self.lblWarning.text = ""
+        self.txtEmail.text = ""
+        self.txtPassword.text = ""
     }
 }

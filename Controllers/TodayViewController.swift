@@ -30,6 +30,7 @@ class TodayViewController: UIViewController {
     // TEST
     @IBAction func signOutTest(_ sender: UIButton) {
         try! Auth.auth().signOut()
+        self.dismiss(animated: true, completion: nil)
     }
     
     // viewWillAppear
