@@ -29,10 +29,13 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Handle checker when the user has already signed in before.
+        // Otherwise, the login page shows up.
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // If the user has already signed in, skip this view controller and show TodayViewController
             if Auth.auth().currentUser != nil {
                 let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
-                
+                self.dismiss(animated: true, completion: nil)
                 self.present(todayView, animated: true, completion: nil)
             } else {
                 self.setupUI()
