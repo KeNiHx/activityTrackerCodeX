@@ -1,6 +1,6 @@
 //
 //  RegisterViewController.swift
-//  Move
+//  View controller for signing up users.
 //
 //  Created by Lee Palisoc on 2018-11-16.
 //  Copyright © 2018 CodeX. All rights reserved.
@@ -10,13 +10,25 @@ import UIKit
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var txtUsername: UITextField!
+    /**
+        @IBOutlets
+        @brief Outlets needed for the view controller.
+     */
     @IBOutlet weak var txtEmailAddress: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var btnContinue: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var lblSubtitle: UILabel!
+    
+    /**
+        @var passedEmail
+        @var passedDescription
+        @brief variables for getting the passed email (so the user don't need to retype it when asked to sign up) and passed description (for informing the user that the account hasn't signed up yet) from the signin page.
+        @optionals since it's the same view controller when the system detects the account is not in the system yet, or when the user taps on "Sign up for an account" button
+     */
+    var passedEmail: String? = nil
+    var passedDescription: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +52,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // MARK: Keyboard events
     // Event for pressing Return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == txtUsername {
-            // When Return key is pressed, the focus goes to the next field
-            txtEmailAddress.becomeFirstResponder()
-        }
         if textField == txtEmailAddress {
             // When Return key is pressed, the focus goes to the next field
             txtPassword.becomeFirstResponder()
@@ -77,10 +85,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // MARK: Setting up Delegates, Tap Gestures
     private func setupUI() {
         // Adding delegates
-        txtUsername.delegate = self
         txtEmailAddress.delegate = self
         txtPassword.delegate = self
         txtConfirmPassword.delegate = self
+        
+        // Setting the passed email address and passed description from sign in view controller
+        if (passedEmail != nil) {
+            txtEmailAddress.text = passedEmail
+        }
+        if (passedDescription != nil) {
+            lblSubtitle.text = passedDescription
+        }
         
         // Designing the Continue button
         btnContinue.layer.shadowOpacity = 0.2
@@ -92,6 +107,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         btnCancel.layer.shadowRadius = 15
         
         // Sizing the description label
+        lblSubtitle.numberOfLines = 0
         lblSubtitle.sizeToFit()
         
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
@@ -111,7 +127,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         toolbar.sizeToFit()
         
         // Setting the toolbar as inputAccessoryView for every element that needs it
-        self.txtUsername.inputAccessoryView = toolbar
         self.txtEmailAddress.inputAccessoryView = toolbar
         self.txtPassword.inputAccessoryView = toolbar
         self.txtConfirmPassword.inputAccessoryView = toolbar

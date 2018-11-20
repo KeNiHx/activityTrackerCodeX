@@ -28,8 +28,17 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        addKeyboardListeners()
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if Auth.auth().currentUser != nil {
+                let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
+                
+                self.present(todayView, animated: true, completion: nil)
+            } else {
+                self.setupUI()
+                self.addKeyboardListeners()
+            }
+        }
     }
     
     // MARK: Start listening for keyboard hide/show events
@@ -135,17 +144,36 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // MARK: Checking user's account
     private func checkUserExistence(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if let errorCode = AuthErrorCode(rawValue: error!._code) {
-                switch errorCode {
-                case .wrongPassword:
-                    self.lblWarning.text = "You entered the wrong password. Try again."
-                case .invalidEmail:
-                    self.lblWarning.text = "You entered an invalid email. Try again."
-                case .accountExistsWithDifferentCredential:
-                    self.lblWarning.text = "Email and password don't match."
-                default:
-                    print(error.debugDescription)
-                    self.lblWarning.text = "Something went wrong. Try again."
+            if error != nil {
+                if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                    switch errorCode {
+                    // Sets the warning label when the user entered the wrong password.
+                    case .wrongPassword:
+                        self.lblWarning.text = "You entered the wrong password. Try again."
+                        
+                    // Sets the warning label when the user entered an invalid email format.
+                    case .invalidEmail:
+                        self.lblWarning.text = "You entered an invalid email. Try again."
+                        
+                    // If user is not found, the register view controller automatically shows up, getting the email address the user typed, and entering it on the email address text field on the register view controller.
+                    case .userNotFound:
+                        let registerView = self.storyboard?.instantiateViewController(withIdentifier: "RegisterBoardID") as! RegisterViewController
+                        
+                        registerView.passedDescription = """
+                        Hello, \(self.txtEmail.text!)! We noticed that you don't have an account yet.
+                        
+                        Just choose a strong password below to sign up for an account.
+                        """
+                        
+                        registerView.passedEmail = self.txtEmail.text!
+                        
+                        self.present(registerView, animated: true, completion: nil)
+                        
+                    // Default when something (we're not sure of) went wrong
+                    default:
+                        print(error.debugDescription)
+                        self.lblWarning.text = "Something went wrong. Try again."
+                    }
                 }
             }
         }
@@ -154,12 +182,13 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            print("WHAT IS THIS!?")
+            print("Starting @var handle listener...")
         }
     }
     
     // viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
+        print("Removing @var handle listener...")
     }
 }
