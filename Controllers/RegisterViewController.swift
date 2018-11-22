@@ -228,15 +228,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         self.lblWarning.text = "Email is already in use. Please choose a different one."
                     case .networkError:
                         self.lblWarning.text = "There was a network error. Try pressing Continue again."
+                    case .invalidEmail:
+                        self.lblWarning.text = "The email format is invalid."
                     default:
+                        print(error.debugDescription)
                         self.lblWarning.text = "Something went wrong. Try again."
                     }
                 }
             }
             
-            guard let user = authResult?.user else { return }
-            
-            
+            guard let user = authResult?.user else {
+                print("TEST: guard let user = authResult?.user")
+                return
+            }
         }
     }
 }
