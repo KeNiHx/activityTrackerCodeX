@@ -188,6 +188,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         toolbar.setItems([flexSpace, doneBtn], animated: false)
         toolbar.sizeToFit()
+        lblWarning.sizeToFit()
         
         // Setting the toolbar as inputAccessoryView for every element that needs it
         self.txtEmailAddress.inputAccessoryView = toolbar
@@ -227,9 +228,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
                     switch errorCode {
                         case .emailAlreadyInUse:
-                            self.lblWarning.text = "Email is already in use. Please choose a different one."
+                            self.lblWarning.text = """
+                            Email is already in use.
+                            Please choose a different one.
+                            """
                         case .networkError:
-                            self.lblWarning.text = "There was a network error. Try pressing Continue again."
+                            self.lblWarning.text = """
+                            There was a network error.
+                            Try pressing Continue again.
+                            """
                         case .invalidEmail:
                             self.lblWarning.text = "The email format is invalid."
                         default:

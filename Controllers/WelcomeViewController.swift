@@ -126,6 +126,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         
         toolbar.setItems([flexSpace, doneBtn], animated: false)
         toolbar.sizeToFit()
+        lblWarning.sizeToFit()
         
         // Setting the toolbar as inputAccessoryView for every element that needs it
         self.txtEmail.inputAccessoryView = toolbar
@@ -173,6 +174,8 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
                         self.lblWarning.text = "Something went wrong. Try again."
                     }
                 }
+            } else {
+                self.checkValidation()
             }
         }
     }
@@ -186,22 +189,37 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         checkUserExistence(email: txtEmail.text!, password: txtPassword.text!)
     }
     
+    // MARK: Check user's validation (NOT JUST ITS EXISTENCE!)
+    private func checkValidation() {
+        // If the user has already signed in and has a verified email address, skip this view controller and show TodayViewController
+        // Otherwise, still show this controller, put the user's email address on the field, and tell the user that s/he needs to verify it first.
+        if Auth.auth().currentUser != nil {
+            if (Auth.auth().currentUser?.isEmailVerified)! {
+                let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
+                self.dismiss(animated: true, completion: nil)
+                self.present(todayView, animated: true, completion: nil)
+            } else {
+                self.setupUI()
+                self.addKeyboardListeners()
+                self.txtEmail.text = Auth.auth().currentUser?.email
+                self.lblWarning.text = """
+                Your email address needs to be verified.
+                Check your inbox for the link.
+                """
+            }
+        }
+        // Otherwise, show the login page
+        else {
+            self.setupUI()
+            self.addKeyboardListeners()
+        }
+    }
     
     // The controller's viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
             print("Starting @var handle listener...")
-            // If the user has already signed in, skip this view controller and show TodayViewController
-            if Auth.auth().currentUser != nil {
-                let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
-                self.dismiss(animated: true, completion: nil)
-                self.present(todayView, animated: true, completion: nil)
-            }
-            // Otherwise, show the login page
-            else {
-                self.setupUI()
-                self.addKeyboardListeners()
-            }
+            self.checkValidation()
         }
     }
     
