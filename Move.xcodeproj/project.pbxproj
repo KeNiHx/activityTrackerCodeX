@@ -24,6 +24,8 @@
 		9B911E1321A38D5500DF4034 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B911E1221A38D5500DF4034 /* TodayViewController.swift */; };
 		9B975ED621A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
 		9B975ED721A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
+		CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
+		CF1DB95B21A6567200214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		A1085E8A51BB09673585F1E7 /* Pods-MoveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4C4361983FED386E296528 /* Pods-Move.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B0DE5EA4C8EB74BD9D422C /* Pods-Move.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.release.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.release.xcconfig"; sourceTree = "<group>"; };
+		CF1DB95921A654A000214807 /* EmailSentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,7 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF1DB95921A654A000214807 /* EmailSentViewController.swift */,
 				9B911E1221A38D5500DF4034 /* TodayViewController.swift */,
 				9B345473219E743C0035DD86 /* RegisterPageViewController.swift */,
 				9B4FE9FA219F70D300B9ECF9 /* RegisterViewController.swift */,
@@ -370,6 +374,7 @@
 				9B4FE9FB219F70D300B9ECF9 /* RegisterViewController.swift in Sources */,
 				9B61A6EA219A74010052F6D7 /* User.swift in Sources */,
 				9B911E1321A38D5500DF4034 /* TodayViewController.swift in Sources */,
+				CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
 				9B345474219E743C0035DD86 /* RegisterPageViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
@@ -384,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B61A6DA219A6BCB0052F6D7 /* MoveTests.swift in Sources */,
+				CF1DB95B21A6567200214807 /* EmailSentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

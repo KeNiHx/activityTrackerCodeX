@@ -128,9 +128,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func registerUser(_ sender: Any?) {
         print("TEST: REGISTERING...")
         
-        let registerPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdditionalInfoPageViewController") as! RegisterPageViewController
+        createUser(email: txtEmailAddress.text!, password:txtPassword.text!)
         
-        self.present(registerPageViewController, animated: true, completion: nil)
+//        let registerPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdditionalInfoPageViewController") as! RegisterPageViewController
+//
+//        self.present(registerPageViewController, animated: true, completion: nil)
     }
     
     // MARK: Setting up Delegates, Tap Gestures
@@ -236,6 +238,27 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
+            /*
+                Send a user an email verification email and display the verify email view
+            */
+            else{
+                let actionCodeSettings = ActionCodeSettings.init()
+                actionCodeSettings.handleCodeInApp = true
+                let user = Auth.auth().currentUser
+                actionCodeSettings.url = URL(fileURLWithPath: "https://www.example.com/?email=\(String(describing: user!.email))")
+                actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+               
+                user!.sendEmailVerification(with: actionCodeSettings, completion: { error in
+                    if error != nil {
+                        // Error occurred. Inspect error.code and handle error.
+                        return
+                    }
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "EmailSentBoardID") as! EmailSentViewController
+                    
+                    self.present(vc, animated: true, completion: nil)
+                })
+            }
             
             guard let user = authResult?.user else {
                 print("TEST: guard let user = authResult?.user")
@@ -243,4 +266,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    
+    
 }
