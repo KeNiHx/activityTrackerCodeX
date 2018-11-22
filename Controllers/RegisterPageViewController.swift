@@ -24,7 +24,7 @@ class RegisterPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource = self
+        self.dataSource = nil
         self.delegate = self
         
         if let firstVC = pages.first {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2465901D1A44308CE8B2DF73 /* Pods_MoveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */; };
 		7B760F265BE32BFF24894C96 /* Pods_Move.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F2260FD2AD86A56763BC32 /* Pods_Move.framework */; };
+		9B26A09121A76EDF0028A4D8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B26A09021A76EDF0028A4D8 /* HealthKit.framework */; };
 		9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34546E219D2BFA0035DD86 /* SignInViewController.swift */; };
 		9B345472219E3E0E0035DD86 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345471219E3E0E0035DD86 /* Workout.swift */; };
 		9B345474219E743C0035DD86 /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345473219E743C0035DD86 /* RegisterPageViewController.swift */; };
@@ -21,6 +22,7 @@
 		9B61A6CF219A6BCB0052F6D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B61A6CD219A6BCB0052F6D7 /* LaunchScreen.storyboard */; };
 		9B61A6DA219A6BCB0052F6D7 /* MoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6D9219A6BCB0052F6D7 /* MoveTests.swift */; };
 		9B61A6EA219A74010052F6D7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61A6E9219A74010052F6D7 /* User.swift */; };
+		9B8135AA21A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8135A921A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift */; };
 		9B911E1321A38D5500DF4034 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B911E1221A38D5500DF4034 /* TodayViewController.swift */; };
 		9B975ED621A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
 		9B975ED721A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
@@ -42,6 +44,8 @@
 		2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F2260FD2AD86A56763BC32 /* Pods_Move.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Move.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94436544EE07CCA9023FE196 /* Pods-MoveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B26A08F21A76EDF0028A4D8 /* Move.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Move.entitlements; sourceTree = "<group>"; };
+		9B26A09021A76EDF0028A4D8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		9B34546E219D2BFA0035DD86 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = Controllers/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
 		9B345471219E3E0E0035DD86 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		9B345473219E743C0035DD86 /* RegisterPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 		9B61A6DB219A6BCB0052F6D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B61A6E9219A74010052F6D7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B69802B219BD2DC006686A8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B8135A921A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequiredInfoViewController.swift; sourceTree = "<group>"; };
 		9B911E1221A38D5500DF4034 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1085E8A51BB09673585F1E7 /* Pods-MoveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B760F265BE32BFF24894C96 /* Pods_Move.framework in Frameworks */,
+				9B26A09121A76EDF0028A4D8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +132,7 @@
 		9B61A6C0219A6BCA0052F6D7 /* Move */ = {
 			isa = PBXGroup;
 			children = (
+				9B26A08F21A76EDF0028A4D8 /* Move.entitlements */,
 				9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */,
 				9B61A6CB219A6BCB0052F6D7 /* Assets.xcassets */,
 				9B61A6D0219A6BCB0052F6D7 /* Info.plist */,
@@ -156,6 +163,7 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B8135A921A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift */,
 				CF1DB95921A654A000214807 /* EmailSentViewController.swift */,
 				9B911E1221A38D5500DF4034 /* TodayViewController.swift */,
 				9B345473219E743C0035DD86 /* RegisterPageViewController.swift */,
@@ -178,6 +186,7 @@
 		9B698028219BCEEA006686A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B26A09021A76EDF0028A4D8 /* HealthKit.framework */,
 				9B4FE9F8219F706E00B9ECF9 /* TextFieldEffects.framework */,
 				80F2260FD2AD86A56763BC32 /* Pods_Move.framework */,
 				2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */,
@@ -241,6 +250,9 @@
 						SystemCapabilities = {
 							com.apple.GameCenter.iOS = {
 								enabled = 0;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
 							};
 						};
 					};
@@ -375,6 +387,7 @@
 				9B61A6EA219A74010052F6D7 /* User.swift in Sources */,
 				9B911E1321A38D5500DF4034 /* TodayViewController.swift in Sources */,
 				CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */,
+				9B8135AA21A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
 				9B345474219E743C0035DD86 /* RegisterPageViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
@@ -544,6 +557,7 @@
 			baseConfigurationReference = AB4C4361983FED386E296528 /* Pods-Move.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Move/Move.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FXUS55NRQ7;
 				INFOPLIST_FILE = Move/Info.plist;
@@ -564,6 +578,7 @@
 			baseConfigurationReference = C5B0DE5EA4C8EB74BD9D422C /* Pods-Move.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Move/Move.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FXUS55NRQ7;
 				INFOPLIST_FILE = Move/Info.plist;
