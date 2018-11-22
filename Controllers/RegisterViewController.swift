@@ -146,6 +146,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         txtPassword.addTarget(self, action: #selector(shortPassword(_:)), for: UIControl.Event.editingChanged)
         txtConfirmPassword.addTarget(self, action: #selector(passwordMatches(_:)), for: UIControl.Event.editingChanged)
         
+        // Sizing the description label
+        lblSubtitle.numberOfLines = 0
+        lblSubtitle.sizeToFit()
+        
         // Setting the passed email address and passed description from sign in view controller
         if (passedEmail != nil) {
             txtEmailAddress.text = passedEmail
@@ -165,10 +169,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         btnCancel.layer.shadowOpacity = 0.2
         btnCancel.layer.shadowOffset = CGSize(width: 1, height: 2)
         btnCancel.layer.shadowRadius = 15
-        
-        // Sizing the description label
-        lblSubtitle.numberOfLines = 0
-        lblSubtitle.sizeToFit()
         
         // Disabling the Continue button
         btnContinue.isEnabled = false
@@ -226,42 +226,41 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             if error != nil {
                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
                     switch errorCode {
-                    case .emailAlreadyInUse:
-                        self.lblWarning.text = "Email is already in use. Please choose a different one."
-                    case .networkError:
-                        self.lblWarning.text = "There was a network error. Try pressing Continue again."
-                    case .invalidEmail:
-                        self.lblWarning.text = "The email format is invalid."
-                    default:
-                        print(error.debugDescription)
-                        self.lblWarning.text = "Something went wrong. Try again."
+                        case .emailAlreadyInUse:
+                            self.lblWarning.text = "Email is already in use. Please choose a different one."
+                        case .networkError:
+                            self.lblWarning.text = "There was a network error. Try pressing Continue again."
+                        case .invalidEmail:
+                            self.lblWarning.text = "The email format is invalid."
+                        default:
+                            print(error.debugDescription)
+                            self.lblWarning.text = "Something went wrong. Try again."
                     }
                 }
             }
-            /*
-                Send a user an email verification email and display the verify email view
-            */
-            else{
+            // Send a user an email verification email and display the verify email view
+            else {
                 let actionCodeSettings = ActionCodeSettings.init()
-                actionCodeSettings.handleCodeInApp = true
+                actionCodeSettings.handleCodeInApp = false
                 let user = Auth.auth().currentUser
-                actionCodeSettings.url = URL(fileURLWithPath: "https://www.example.com/?email=\(String(describing: user!.email))")
-                actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+                actionCodeSettings.url = NSURL(string: "https://movebycodex.ca/?email=\(user!.email!)")! as URL
+                actionCodeSettings.setIOSBundleID((Bundle.main.bundleIdentifier)!)
                
-                user!.sendEmailVerification(with: actionCodeSettings, completion: { error in
+                user?.sendEmailVerification(with: actionCodeSettings, completion: { error in
+                    // If there is an error, put an error message and ask the user to try again
+                    // Otherwise, show the "Almost Done" view controller to let the user know that s/he needs to verify his/her email address
                     if error != nil {
-                        // Error occurred. Inspect error.code and handle error.
+                        self.lblWarning.text = "Something went wrong. Try again."
                         return
+                    } else {
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EmailSentBoardID") as! EmailSentViewController
+                        
+                        self.present(vc, animated: true, completion: nil)
                     }
-                    
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "EmailSentBoardID") as! EmailSentViewController
-                    
-                    self.present(vc, animated: true, completion: nil)
                 })
             }
             
             guard let user = authResult?.user else {
-                print("TEST: guard let user = authResult?.user")
                 return
             }
         }
