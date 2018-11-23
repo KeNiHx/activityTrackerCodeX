@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '12.0'
+platform :ios, '12.0'
 
 target 'Move' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -9,6 +9,9 @@ target 'Move' do
     # Firebase
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
+    
+    # NotificationBanner for in-app notifications
+    pod 'NotificationBannerSwift'
     
     # Crash analytics
     pod 'Fabric', '~> 1.8.2'

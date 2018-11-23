@@ -56,11 +56,16 @@ PODS:
   - GoogleUtilities/UserDefaults (5.3.6):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.0)
+  - MarqueeLabel/Swift (3.2.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - NotificationBannerSwift (1.8.0):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.0.1)
+  - SnapKit (4.0.1)
   - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
@@ -68,6 +73,7 @@ DEPENDENCIES:
   - Fabric (~> 1.8.2)
   - Firebase/Auth
   - Firebase/Core
+  - NotificationBannerSwift
   - TextFieldEffects
 
 SPEC REPOS:
@@ -83,7 +89,10 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - MarqueeLabel
     - nanopb
+    - NotificationBannerSwift
+    - SnapKit
     - TextFieldEffects
 
 SPEC CHECKSUMS:
@@ -98,9 +107,12 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  NotificationBannerSwift: 49fc4be7fabada55b189b50e72184c92edd5f7f7
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: abb187696c88b12a2678d9f2de9ad96aa3c7994a
+PODFILE CHECKSUM: ae53b119efdc194bf8b11517f503d32261d84f90
 
 COCOAPODS: 1.5.3
