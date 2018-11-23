@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import Firebase
 
 class EmailSentViewController: UIViewController {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let dynamicLink: URL? = nil
+    
 
+    @IBOutlet weak var lbltest: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lbltest.text = appDelegate.passingLink?.absoluteString
+        
         // Do any additional setup after loading the view.
+        
     }
+    
+    
     
 
     /*

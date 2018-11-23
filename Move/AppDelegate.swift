@@ -14,6 +14,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var passingLink: URL?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -45,6 +46,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    func handleIncomingDynamicLink(_ dynamicLink: DynamicLink) {
+        guard let url = dynamicLink.url else {
+            print("My dynamic link object has no url.")
+            return
+        }
+        print("Your dynamic link parameter is \(url.absoluteString)")
+        print(dynamicLink.matchType)
+        
+    }
+    
+    func application(_ application: UIApplication, continue userActivity:
+        // Handling universal links when using Dynamic links
+        NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        //check to see if there is an incoming URL
+        if let incomingURL = userActivity.webpageURL {
+            print("Incoming URL is  \(incomingURL)")
+            let linkedHandled = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL){
+                (dynamicLink, error) in
+                guard error == nil
+                    else {
+                        print("Found an error! \(error!.localizedDescription)")
+                        return
+                }
+                //check if the dynamic link exists
+                if let dynamicLink = dynamicLink {
+                    self.handleIncomingDynamicLink(dynamicLink)
+                }
+            }
+            if linkedHandled {
+            return true
+            } else {
+                // handle other things from our incoming URL
+                passingLink = incomingURL
+                
+                return false
+            }
+        }
+         return false
+    }
+   
 
     // MARK: - Core Data stack
 
