@@ -249,9 +249,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             // Send a user an email verification email and display the verify email view
             else {
                 let actionCodeSettings = ActionCodeSettings.init()
-                actionCodeSettings.handleCodeInApp = false
+                actionCodeSettings.handleCodeInApp = true
                 let user = Auth.auth().currentUser
-                actionCodeSettings.url = NSURL(string: "https://movebycodex.ca/?email=\(user!.email!)")! as URL
+                actionCodeSettings.url = NSURL(string: "https://www.movebycodex.ca/verify?email=\(user!.email!)")! as URL
                 actionCodeSettings.setIOSBundleID((Bundle.main.bundleIdentifier)!)
                
                 user?.sendEmailVerification(with: actionCodeSettings, completion: { error in
