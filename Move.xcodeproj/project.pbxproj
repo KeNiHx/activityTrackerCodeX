@@ -27,6 +27,7 @@
 		9B975ED621A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
 		9B975ED721A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
 		9B9EB56321A925D200C41A89 /* WorkoutButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9EB56221A925D200C41A89 /* WorkoutButtonsViewController.swift */; };
+		9B9F366321A943550077A560 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4FE9F8219F706E00B9ECF9 /* TextFieldEffects.framework */; };
 		CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 		CF1DB95B21A6567200214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B760F265BE32BFF24894C96 /* Pods_Move.framework in Frameworks */,
+				9B9F366321A943550077A560 /* TextFieldEffects.framework in Frameworks */,
 				9B26A09121A76EDF0028A4D8 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

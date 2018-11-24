@@ -14,8 +14,6 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var passingLink: URL?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -63,28 +61,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //check to see if there is an incoming URL
         if let incomingURL = userActivity.webpageURL {
             print("Incoming URL is  \(incomingURL)")
-            let linkedHandled = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL){
+            
+            let linkedHandled = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL) {
                 (dynamicLink, error) in
                 guard error == nil
                     else {
                         print("Found an error! \(error!.localizedDescription)")
                         return
                 }
+                
                 //check if the dynamic link exists
                 if let dynamicLink = dynamicLink {
                     self.handleIncomingDynamicLink(dynamicLink)
                 }
             }
+            
             if linkedHandled {
             return true
             } else {
                 // handle other things from our incoming URL
-                passingLink = incomingURL
-                
                 return false
             }
         }
-         return false
+        
+        return false
     }
    
 

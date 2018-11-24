@@ -525,13 +525,6 @@ But we're not finished yet! Check your email for a verification link to continue
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzh-B0-dPQ">
-                                <rect key="frame" x="82" y="283" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.56193586230000003" green="0.71459812739999995" blue="0.3658510948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -543,9 +536,6 @@ But we're not finished yet! Check your email for a verification link to continue
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iYY-8K-hYJ"/>
                     </view>
-                    <connections>
-                        <outlet property="lbltest" destination="nzh-B0-dPQ" id="nSh-uL-n4k"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBL-0g-6iR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
