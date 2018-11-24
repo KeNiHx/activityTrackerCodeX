@@ -20,6 +20,9 @@ target 'Move' do
     
     # TextField Effects
     pod 'TextFieldEffects'
+    
+    # Loading view when a task is too long to wait
+    pod 'DSLoadable'
 
   target 'MoveTests' do
     inherit! :search_paths

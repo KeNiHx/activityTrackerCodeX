@@ -86,13 +86,16 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         if sender.text!.count >= 1 && sender.text!.count <= 4 {
             lblWarning.text = "Password is too short."
             btnContinue.isEnabled = false
+            btnContinue.alpha = 0.5
         }
         else if sender.text!.isEmpty {
             lblWarning.text = ""
             btnContinue.isEnabled = false
+            btnContinue.alpha = 0.5
         } else {
             lblWarning.text = ""
             btnContinue.isEnabled = true
+            btnContinue.alpha = 1.0
         }
     }
     
@@ -104,11 +107,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         
         // Helper for editing listener
         txtPassword.addTarget(self, action: #selector(passwordEditingChanged(_:)), for: UIControl.Event.editingChanged)
-        
-        // Designing the Continue button
-        btnContinue.layer.shadowOpacity = 0.2
-        btnContinue.layer.shadowOffset = CGSize(width: 1, height: 2)
-        btnContinue.layer.shadowRadius = 15
         
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -196,7 +194,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             //if (Auth.auth().currentUser?.isEmailVerified)! {
             //} else {
             //    self.setupUI()
-            //    self.addKeyboardListeners()
+            //    s elf.addKeyboardListeners()
             //    self.txtEmail.text = Auth.auth().currentUser?.email
             //    self.lblWarning.text = """
             //    Your email address needs to be verified.
@@ -235,5 +233,49 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         self.lblWarning.text = ""
         self.txtEmail.text = ""
         self.txtPassword.text = ""
+    }
+}
+
+// MARK: - Extension for adding designs on the UI Images
+@IBDesignable extension UIButton {
+    @IBInspectable
+    var shadowRadius: CGFloat {
+        get { return layer.shadowRadius }
+        set { layer.shadowRadius = newValue }
+    }
+    
+    @IBInspectable
+    var shadowOpacity: Float {
+        get { return layer.shadowOpacity }
+        set { layer.shadowOpacity = newValue }
+    }
+    
+    @IBInspectable
+    var shadowOffset: CGSize {
+        get { return layer.shadowOffset }
+        set { layer.shadowOffset = newValue }
+    }
+    
+    @IBInspectable
+    var shadowColor: UIColor? {
+        get {
+            if let color = layer.shadowColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            if let color = newValue {
+                layer.shadowColor = color.cgColor
+            } else {
+                layer.shadowColor = nil
+            }
+        }
+    }
+    
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        get { return layer.cornerRadius }
+        set { layer.cornerRadius = newValue }
     }
 }
