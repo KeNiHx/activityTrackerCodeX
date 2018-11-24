@@ -9,6 +9,7 @@
 
 import UIKit
 import Firebase
+import DSLoadable
 
 class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
@@ -86,16 +87,13 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         if sender.text!.count >= 1 && sender.text!.count <= 4 {
             lblWarning.text = "Password is too short."
             btnContinue.isEnabled = false
-            btnContinue.alpha = 0.5
         }
         else if sender.text!.isEmpty {
             lblWarning.text = ""
             btnContinue.isEnabled = false
-            btnContinue.alpha = 0.5
         } else {
             lblWarning.text = ""
             btnContinue.isEnabled = true
-            btnContinue.alpha = 1.0
         }
     }
     
@@ -107,6 +105,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         
         // Helper for editing listener
         txtPassword.addTarget(self, action: #selector(passwordEditingChanged(_:)), for: UIControl.Event.editingChanged)
+        
+        // Make sure Continue button is disabled
+        btnContinue.isEnabled = false
         
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -138,8 +139,22 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // FIREBASE
     // MARK: - Checking user account's existence
     private func checkUserExistence(email: String, password: String) {
+        // Label for the action
+        lblWarning.text = "Logging in..."
+        
+        // Set the loading indicator on the Continue button
+        btnContinue.setTitle("", for: .normal)
+        btnContinue.loadableStartLoading()
+        
+        // Actually check for the user—-Haha!
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
+                // If error exists, remove the loading indicator, and put the "Continue" text back to the button
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self.btnContinue.loadableStopLoading()
+                }
+                self.btnContinue.setTitle("Continue", for: .normal)
+                
                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
                     switch errorCode {
                     // Sets the warning label when the user entered the wrong password.
@@ -179,9 +194,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Action for signing in user
     @IBAction func btnSignIn(_ sender: UIButton) {
-        // Label for the action
-        lblWarning.text = "Logging in..."
-        
         // Check if the user exists
         checkUserExistence(email: txtEmail.text!, password: txtPassword.text!)
     }
@@ -259,17 +271,12 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     @IBInspectable
     var shadowColor: UIColor? {
         get {
-            if let color = layer.shadowColor {
-                return UIColor(cgColor: color)
-            }
+            if let color = layer.shadowColor { return UIColor(cgColor: color) }
             return nil
         }
         set {
-            if let color = newValue {
-                layer.shadowColor = color.cgColor
-            } else {
-                layer.shadowColor = nil
-            }
+            if let color = newValue { layer.shadowColor = color.cgColor }
+            else { layer.shadowColor = nil }
         }
     }
     

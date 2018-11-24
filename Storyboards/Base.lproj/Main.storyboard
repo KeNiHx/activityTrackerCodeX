@@ -77,15 +77,14 @@
                                     <action selector="passwordEditingChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="AaW-yt-ONU"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lE4-Dp-Yyh">
+                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lE4-Dp-Yyh">
                                 <rect key="frame" x="87" y="446" width="201" height="37"/>
-                                <color key="backgroundColor" red="0.97227032230640986" green="0.97920274172980748" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="201" id="Fva-Br-65n"/>
                                     <constraint firstAttribute="height" constant="37" id="xIF-Fg-b2g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <state key="normal" title="Continue">
+                                <state key="normal" title="Continue" backgroundImage="Background_Button">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -272,7 +271,6 @@
         <!--Workout Buttons View Controller-->
         <scene sceneID="k5g-nb-bLa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bq4-G1-53G" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GGw-tx-Mth" customClass="WorkoutButtonsViewController" customModule="Move" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gla-1A-co5">
                         <rect key="frame" x="0.0" y="0.0" width="744" height="70"/>
@@ -514,6 +512,7 @@
                     </view>
                     <size key="freeformSize" width="744" height="70"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq4-G1-53G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2357" y="454"/>
         </scene>
