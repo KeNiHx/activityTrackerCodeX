@@ -25,30 +25,29 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
      */
     var handle: AuthStateDidChangeListenerHandle?
     
-    // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK: Changing the status bar's style to colour white
+    // MARK: - Changing the status bar's style to colour white
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    // MARK: Start listening for keyboard hide/show events
+    // MARK: - Start listening for keyboard hide/show events
     private func addKeyboardListeners() {
         // Keyboard Listeners
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // MARK: Stop listening for keyboard hide/show events
+    // MARK: - Stop listening for keyboard hide/show events
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // Event for pressing Return key
+    // MARK: - Event for pressing Return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtEmail {
             // When Return key is pressed, the focus goes to the next field
@@ -82,7 +81,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: Listener for making sure password is more than 4 characters
+    // MARK: - Listener for making sure password is more than 4 characters
     @IBAction func passwordEditingChanged(_ sender: UITextField) {
         if sender.text!.count >= 1 && sender.text!.count <= 4 {
             lblWarning.text = "Password is too short."
@@ -97,7 +96,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: Setting Up UI, Adding Delegates, Tap Gestures
+    // MARK: - Setting Up UI, Adding Delegates, Tap Gestures
     private func setupUI() {
         // Adding delegates
         txtEmail.delegate = self
@@ -133,13 +132,13 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         self.txtPassword.inputAccessoryView = toolbar
     }
     
-    // MARK: Action for "Done" button on the keyboard.
+    // MARK: - Action for "Done" button on the keyboard.
     @objc func doneButtonAction() {
         self.view.endEditing(true)
     }
     
     // FIREBASE
-    // MARK: Checking user's account
+    // MARK: - Checking user account's existence
     private func checkUserExistence(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
@@ -180,7 +179,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // MARK: Action for signing in user
+    // MARK: - Action for signing in user
     @IBAction func btnSignIn(_ sender: UIButton) {
         // Label for the action
         lblWarning.text = "Logging in..."
@@ -189,24 +188,27 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         checkUserExistence(email: txtEmail.text!, password: txtPassword.text!)
     }
     
-    // MARK: Check user's validation (NOT JUST ITS EXISTENCE!)
+    // MARK: - Check user's validation (NOT JUST ITS EXISTENCE!)
     private func checkValidation() {
         // If the user has already signed in and has a verified email address, skip this view controller and show TodayViewController
         // Otherwise, still show this controller, put the user's email address on the field, and tell the user that s/he needs to verify it first.
         if Auth.auth().currentUser != nil {
-            if (Auth.auth().currentUser?.isEmailVerified)! {
-                let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
+            //if (Auth.auth().currentUser?.isEmailVerified)! {
+            //} else {
+            //    self.setupUI()
+            //    self.addKeyboardListeners()
+            //    self.txtEmail.text = Auth.auth().currentUser?.email
+            //    self.lblWarning.text = """
+            //    Your email address needs to be verified.
+            //    Check your inbox for the link.
+            //    """
+            //}
+            
+            // !!! DISABLING EMAIL VERIFICATION BLOCKING FOR NOW !!!
+            
+            let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
                 self.dismiss(animated: true, completion: nil)
                 self.present(todayView, animated: true, completion: nil)
-            } else {
-                self.setupUI()
-                self.addKeyboardListeners()
-                self.txtEmail.text = Auth.auth().currentUser?.email
-                self.lblWarning.text = """
-                Your email address needs to be verified.
-                Check your inbox for the link.
-                """
-            }
         }
         // Otherwise, show the login page
         else {
@@ -215,6 +217,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: - Functions for overriding functions in this view controller
     // The controller's viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
