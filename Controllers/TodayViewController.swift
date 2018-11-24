@@ -17,11 +17,22 @@ class TodayViewController: UIViewController {
      */
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var imgProfilePic: UIImageView!
+    @IBOutlet weak var lblRandomMessage: UILabel!
+    @IBOutlet weak var scrollViewWorkout: UIScrollView!
     
-    /** @var handle
+    /**
+     @var handle
      @brief The handler for the auth state listener, to allow cancelling later.
      */
     var handle: AuthStateDidChangeListenerHandle?
+    
+    /**
+     @var messages
+     @let random
+     @brief Random messages that will appear evertime the view controller opens, chosen by the random() function.
+     */
+    var messages = ["what do you want to do today?", "do you want to start a workout right away?", "feeling pumped? let's workout!"]
+    let random = Int.random(in: 0..<3)
     
     // MAIN
     override func viewDidLoad() {
@@ -44,6 +55,9 @@ class TodayViewController: UIViewController {
         imgProfilePic.layer.shadowOpacity = 0.3
         imgProfilePic.layer.shadowOffset = CGSize(width: 1, height: 1)
         imgProfilePic.layer.shadowRadius = 3
+        
+        // Setting the random message
+        lblRandomMessage.text = messages[random]
     }
     
     // viewWillAppear

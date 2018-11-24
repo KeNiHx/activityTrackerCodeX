@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import NotificationBannerSwift
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
@@ -257,7 +258,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     // If there is an error, put an error message and ask the user to try again
                     // Otherwise, show the "Almost Done" view controller to let the user know that s/he needs to verify his/her email address
                     if error != nil {
-                        self.lblWarning.text = "Something went wrong. Try again."
+                        let banner = GrowingNotificationBanner(title: "Error", subtitle: "There was an internal error. Please try again.", style: .danger)
+                        banner.show()
                         return
                     } else {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EmailSentBoardID") as! EmailSentViewController
