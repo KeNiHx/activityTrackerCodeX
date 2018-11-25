@@ -18,7 +18,6 @@ class TodayViewController: UIViewController {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var imgProfilePic: UIImageView!
     @IBOutlet weak var lblRandomMessage: UILabel!
-    @IBOutlet weak var scrollViewWorkout: UIScrollView!
     
     /**
      @var handle

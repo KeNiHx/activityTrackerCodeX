@@ -167,14 +167,14 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9B9EB56221A925D200C41A89 /* WorkoutButtonsViewController.swift */,
-				9B8135A921A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift */,
 				CF1DB95921A654A000214807 /* EmailSentViewController.swift */,
-				9B911E1221A38D5500DF4034 /* TodayViewController.swift */,
 				9B345473219E743C0035DD86 /* RegisterPageViewController.swift */,
+				9B8135A921A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift */,
 				9B4FE9FA219F70D300B9ECF9 /* RegisterViewController.swift */,
 				9B34546E219D2BFA0035DD86 /* SignInViewController.swift */,
+				9B911E1221A38D5500DF4034 /* TodayViewController.swift */,
 				9B61A6C3219A6BCA0052F6D7 /* WelcomeViewController.swift */,
+				9B9EB56221A925D200C41A89 /* WorkoutButtonsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

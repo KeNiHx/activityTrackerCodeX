@@ -203,6 +203,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         // If the user has already signed in and has a verified email address, skip this view controller and show TodayViewController
         // Otherwise, still show this controller, put the user's email address on the field, and tell the user that s/he needs to verify it first.
         if Auth.auth().currentUser != nil {
+            
+            // !!! DISABLING EMAIL VERIFICATION BLOCKING FOR NOW !!!
+            
             //if (Auth.auth().currentUser?.isEmailVerified)! {
             //} else {
             //    self.setupUI()
@@ -213,8 +216,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             //    Check your inbox for the link.
             //    """
             //}
-            
-            // !!! DISABLING EMAIL VERIFICATION BLOCKING FOR NOW !!!
             
             let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
                 self.dismiss(animated: true, completion: nil)
