@@ -28,6 +28,7 @@
 		9B975ED721A0B04800A9D46B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */; };
 		9B9EB56321A925D200C41A89 /* WorkoutButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9EB56221A925D200C41A89 /* WorkoutButtonsViewController.swift */; };
 		9B9F366321A943550077A560 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4FE9F8219F706E00B9ECF9 /* TextFieldEffects.framework */; };
+		9B9F366621AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F366521AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift */; };
 		CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 		CF1DB95B21A6567200214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		9B911E1221A38D5500DF4034 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B9EB56221A925D200C41A89 /* WorkoutButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutButtonsViewController.swift; sourceTree = "<group>"; };
+		9B9F366521AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOutdoorSessionViewController.swift; sourceTree = "<group>"; };
 		A1085E8A51BB09673585F1E7 /* Pods-MoveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4C4361983FED386E296528 /* Pods-Move.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B0DE5EA4C8EB74BD9D422C /* Pods-Move.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.release.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B9F366521AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift */,
 				CF1DB95921A654A000214807 /* EmailSentViewController.swift */,
 				9B345473219E743C0035DD86 /* RegisterPageViewController.swift */,
 				9B8135A921A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift */,
@@ -405,6 +408,7 @@
 				9B61A6EA219A74010052F6D7 /* User.swift in Sources */,
 				9B911E1321A38D5500DF4034 /* TodayViewController.swift in Sources */,
 				CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */,
+				9B9F366621AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift in Sources */,
 				9B8135AA21A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
 				9B9EB56321A925D200C41A89 /* WorkoutButtonsViewController.swift in Sources */,
