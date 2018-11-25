@@ -1163,7 +1163,7 @@ These are optionals, you can skip if you prefer not to answer.</string>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="family-name"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1211,6 +1211,7 @@ However, you might wanna choose a display name and gender first. These are requi
                                 <connections>
                                     <action selector="nextPage:" destination="AbT-sc-Fuz" eventType="touchUpInside" id="wiT-dS-APn"/>
                                     <action selector="registerUser:" destination="vk8-iA-vKQ" eventType="touchUpInside" id="6D3-w4-RRJ"/>
+                                    <segue destination="21E-HG-06u" kind="show" id="QSz-wl-Ne5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select your gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jan-mu-aCP">

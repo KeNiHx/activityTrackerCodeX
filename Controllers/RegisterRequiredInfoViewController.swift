@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class RegisterRequiredInfoViewController: UIViewController {
+class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate {
 
     /**
      @IBOutlets
@@ -22,6 +23,13 @@ class RegisterRequiredInfoViewController: UIViewController {
     @IBOutlet weak var btnFemale: UIButton!
     
     /**
+     @var ref
+     @brief Creates a reference to the Firebase Database
+     */
+    var ref: DatabaseReference?
+
+    
+    /**
      @var selectedGender
      @brief Temporary variable to know what gender is selected.
      */
@@ -31,12 +39,21 @@ class RegisterRequiredInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        addKeyboardListeners()
+        ref = Database.database().reference()
+        
     }
     
     // MARK: - Function for the Next button's action
     @IBAction func nextPage(_ sender: UIButton) {
+        self.ref?.child("users").childByAutoId().setValue(["First Name" : txtFirstName.text, "Last Name" : txtLastName.text, "Gender" : selectedGender])
         
+//        ref?.child("First Name").childByAutoId().setValue(txtFirstName.text)
+//        ref?.child("Last Name").childByAutoId().setValue(txtLastName.text)
+//        ref?.child("Gender").childByAutoId().setValue(selectedGender)
     }
+    
+    
     
     // MARK: - Functions for selecting gender
     // When selecting a gender, it should put its alpha to 100% (1.0) to let the user know that it is the correct choice—-50% (0.5) for the unselected choice.
@@ -67,6 +84,8 @@ class RegisterRequiredInfoViewController: UIViewController {
     
     // MARK: - Function for setting up the controller's UI
     private func setupUI() {
+        txtFirstName.delegate = self
+        txtLastName.delegate = self
         
     }
     
@@ -79,5 +98,53 @@ class RegisterRequiredInfoViewController: UIViewController {
     // Controller's viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
         
+    }
+    
+    // MARK: Start listening for keyboard hide/show events
+    private func addKeyboardListeners() {
+        // Keyboard Listeners
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // MARK: Stop listening for keyboard hide/show events
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // MARK: Functions for moving the frame when keyboard shows/hides
+    // Showing keyboard
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 150
+        }
+    }
+    
+    // Hiding keyboard
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    // MARK: Action for "Done" button on the keyboard.
+    @objc func doneButtonAction() {
+        self.view.endEditing(true)
+    }
+    
+    // MARK: Keyboard events
+    // Event for pressing Return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == txtFirstName {
+            // When Return key is pressed, the focus goes to the next field
+            txtFirstName.becomeFirstResponder()
+        }
+        if textField == txtLastName {
+            // When Return key is pressed, the focus goes to the next field
+            txtLastName.becomeFirstResponder()
+        }
+
+        return true
     }
 }
