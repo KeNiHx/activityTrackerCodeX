@@ -764,11 +764,26 @@ Just enter your email and choose a strong password below.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P02-XO-6vx">
+                                <rect key="frame" x="29" y="125" width="317" height="94"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="0GP-PX-KrC"/>
+                                </constraints>
+                                <string key="text">Now, we need a bit more information about you in order to give you a better insight about your daily movements.
+
+These are optionals, you can skip if you prefer not to answer.</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.32877659799999998" green="0.329051435" blue="0.32881915569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XxT-5A-SpX" firstAttribute="top" secondItem="fks-ns-zTc" secondAttribute="top" constant="49" id="3dy-e3-MJn"/>
                             <constraint firstItem="XxT-5A-SpX" firstAttribute="leading" secondItem="fks-ns-zTc" secondAttribute="leading" constant="29" id="KBs-mL-nvx"/>
+                            <constraint firstItem="P02-XO-6vx" firstAttribute="top" secondItem="XxT-5A-SpX" secondAttribute="bottom" constant="8" symbolic="YES" id="KWg-c8-vb4"/>
+                            <constraint firstItem="P02-XO-6vx" firstAttribute="leading" secondItem="XxT-5A-SpX" secondAttribute="leading" id="kMx-DS-ILO"/>
+                            <constraint firstItem="P02-XO-6vx" firstAttribute="centerX" secondItem="Hzl-Sk-uds" secondAttribute="centerX" id="mPI-xH-oJZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fks-ns-zTc"/>
                     </view>
@@ -970,14 +985,14 @@ However, you might wanna choose a display name and gender first. These are requi
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="profile photo." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dj-FX-Mff">
-                                <rect key="frame" x="29" y="69" width="259.5" height="48"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maybe a photo?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dj-FX-Mff">
+                                <rect key="frame" x="29" y="69" width="307" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.95686274510000002" green="0.73553134630000006" blue="0.65671748149999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.53901541233062744" green="0.73930233716964722" blue="0.65745037794113159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4dj-FX-Mff" firstAttribute="leading" secondItem="rvO-iX-1V2" secondAttribute="leading" constant="29" id="SaV-Ub-wMW"/>
                             <constraint firstItem="4dj-FX-Mff" firstAttribute="top" secondItem="rvO-iX-1V2" secondAttribute="top" constant="49" id="kCE-fm-6h1"/>
