@@ -33,10 +33,27 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>The app needs your permission to access your camera in order to let you take a photo without opening the built-in camera app.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app needs your permission to use your location when in usage in order to record your current location while doing your workout.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>The app needs to track your motion activity in order to provide you information about your movement during your session or throughout the day.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The app needs your permission to access your photo library in order for you to choose your existing photo.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Rubik-Black.ttf</string>
+		<string>Rubik-BlackItalic.ttf</string>
+		<string>Rubik-Bold.ttf</string>
+		<string>Rubik-BoldItalic.ttf</string>
+		<string>Rubik-Italic.ttf</string>
+		<string>Rubik-Light.ttf</string>
+		<string>Rubik-LightItalic.ttf</string>
+		<string>Rubik-Medium.ttf</string>
+		<string>Rubik-MediumItalic.ttf</string>
+		<string>Rubik-Regular.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

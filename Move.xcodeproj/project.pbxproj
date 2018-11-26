@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		2465901D1A44308CE8B2DF73 /* Pods_MoveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */; };
 		7B760F265BE32BFF24894C96 /* Pods_Move.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F2260FD2AD86A56763BC32 /* Pods_Move.framework */; };
+		9B25625421AB454C0073E4CC /* RegistrationChoosingPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25625321AB454C0073E4CC /* RegistrationChoosingPhotoViewController.swift */; };
+		9B25626021AB8E530073E4CC /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625621AB8E510073E4CC /* Rubik-MediumItalic.ttf */; };
+		9B25626121AB8E530073E4CC /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625721AB8E510073E4CC /* Rubik-Italic.ttf */; };
+		9B25626221AB8E530073E4CC /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625821AB8E510073E4CC /* Rubik-BlackItalic.ttf */; };
+		9B25626321AB8E530073E4CC /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625921AB8E510073E4CC /* Rubik-BoldItalic.ttf */; };
+		9B25626421AB8E530073E4CC /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625A21AB8E520073E4CC /* Rubik-Light.ttf */; };
+		9B25626521AB8E530073E4CC /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625B21AB8E520073E4CC /* Rubik-LightItalic.ttf */; };
+		9B25626621AB8E530073E4CC /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625C21AB8E520073E4CC /* Rubik-Regular.ttf */; };
+		9B25626721AB8E530073E4CC /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625D21AB8E520073E4CC /* Rubik-Medium.ttf */; };
+		9B25626821AB8E530073E4CC /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625E21AB8E530073E4CC /* Rubik-Bold.ttf */; };
+		9B25626921AB8E530073E4CC /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B25625F21AB8E530073E4CC /* Rubik-Black.ttf */; };
 		9B26A09121A76EDF0028A4D8 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B26A09021A76EDF0028A4D8 /* HealthKit.framework */; };
 		9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B34546E219D2BFA0035DD86 /* SignInViewController.swift */; };
 		9B345472219E3E0E0035DD86 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B345471219E3E0E0035DD86 /* Workout.swift */; };
@@ -47,6 +58,17 @@
 		2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F2260FD2AD86A56763BC32 /* Pods_Move.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Move.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94436544EE07CCA9023FE196 /* Pods-MoveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B25625321AB454C0073E4CC /* RegistrationChoosingPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationChoosingPhotoViewController.swift; sourceTree = "<group>"; };
+		9B25625621AB8E510073E4CC /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
+		9B25625721AB8E510073E4CC /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
+		9B25625821AB8E510073E4CC /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
+		9B25625921AB8E510073E4CC /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		9B25625A21AB8E520073E4CC /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		9B25625B21AB8E520073E4CC /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		9B25625C21AB8E520073E4CC /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		9B25625D21AB8E520073E4CC /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		9B25625E21AB8E530073E4CC /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		9B25625F21AB8E530073E4CC /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		9B26A08F21A76EDF0028A4D8 /* Move.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Move.entitlements; sourceTree = "<group>"; };
 		9B26A09021A76EDF0028A4D8 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		9B34546E219D2BFA0035DD86 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = Controllers/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -111,6 +133,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9B25625521AB8E3F0073E4CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B25625F21AB8E530073E4CC /* Rubik-Black.ttf */,
+				9B25625821AB8E510073E4CC /* Rubik-BlackItalic.ttf */,
+				9B25625E21AB8E530073E4CC /* Rubik-Bold.ttf */,
+				9B25625921AB8E510073E4CC /* Rubik-BoldItalic.ttf */,
+				9B25625721AB8E510073E4CC /* Rubik-Italic.ttf */,
+				9B25625A21AB8E520073E4CC /* Rubik-Light.ttf */,
+				9B25625B21AB8E520073E4CC /* Rubik-LightItalic.ttf */,
+				9B25625D21AB8E520073E4CC /* Rubik-Medium.ttf */,
+				9B25625621AB8E510073E4CC /* Rubik-MediumItalic.ttf */,
+				9B25625C21AB8E520073E4CC /* Rubik-Regular.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		9B61A6B5219A6BCA0052F6D7 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +177,7 @@
 		9B61A6C0219A6BCA0052F6D7 /* Move */ = {
 			isa = PBXGroup;
 			children = (
+				9B25625521AB8E3F0073E4CC /* Resources */,
 				9B26A08F21A76EDF0028A4D8 /* Move.entitlements */,
 				9B61A6C1219A6BCA0052F6D7 /* AppDelegate.swift */,
 				9B61A6CB219A6BCB0052F6D7 /* Assets.xcassets */,
@@ -169,6 +209,7 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9B25625321AB454C0073E4CC /* RegistrationChoosingPhotoViewController.swift */,
 				9B9F366521AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift */,
 				CF1DB95921A654A000214807 /* EmailSentViewController.swift */,
 				9B345473219E743C0035DD86 /* RegisterPageViewController.swift */,
@@ -297,8 +338,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B25626821AB8E530073E4CC /* Rubik-Bold.ttf in Resources */,
 				9B61A6CF219A6BCB0052F6D7 /* LaunchScreen.storyboard in Resources */,
+				9B25626521AB8E530073E4CC /* Rubik-LightItalic.ttf in Resources */,
+				9B25626321AB8E530073E4CC /* Rubik-BoldItalic.ttf in Resources */,
+				9B25626721AB8E530073E4CC /* Rubik-Medium.ttf in Resources */,
 				9B975ED621A0B04800A9D46B /* GoogleService-Info.plist in Resources */,
+				9B25626121AB8E530073E4CC /* Rubik-Italic.ttf in Resources */,
+				9B25626421AB8E530073E4CC /* Rubik-Light.ttf in Resources */,
+				9B25626621AB8E530073E4CC /* Rubik-Regular.ttf in Resources */,
+				9B25626021AB8E530073E4CC /* Rubik-MediumItalic.ttf in Resources */,
+				9B25626921AB8E530073E4CC /* Rubik-Black.ttf in Resources */,
+				9B25626221AB8E530073E4CC /* Rubik-BlackItalic.ttf in Resources */,
 				9B61A6CC219A6BCB0052F6D7 /* Assets.xcassets in Resources */,
 				9B61A6C7219A6BCA0052F6D7 /* Main.storyboard in Resources */,
 			);
@@ -327,6 +378,8 @@
 				"${BUILT_PRODUCTS_DIR}/DSLoadable/DSLoadable.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MMSCameraViewController/MMSCameraViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/MMSProfileImagePicker/MMSProfileImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/MSAutoView/MSAutoView.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
@@ -342,6 +395,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DSLoadable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMSCameraViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMSProfileImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSAutoView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
@@ -414,6 +469,7 @@
 				9B8135AA21A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
 				9B9EB56321A925D200C41A89 /* WorkoutButtonsViewController.swift in Sources */,
+				9B25625421AB454C0073E4CC /* RegistrationChoosingPhotoViewController.swift in Sources */,
 				9B345474219E743C0035DD86 /* RegisterPageViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
 				9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */,
