@@ -1,8 +1,8 @@
 //
-//  RegisterRequiredInfoViewController.swift
+//  MoreInfoViewController.swift
 //  Move
 //
-//  Created by Lee Palisoc on 2018-11-22.
+//  Created by Kenny Lam on 2018-11-26.
 //  Copyright © 2018 CodeX. All rights reserved.
 //
 
@@ -10,18 +10,21 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate {
+class MoreInfoViewController: UIViewController, UITextFieldDelegate {
 
-    /**
-     @IBOutlets
-     @brief Outlets needed for the view controller.
-     */
-    @IBOutlet weak var btnNext: UIButton!
-    @IBOutlet weak var lblMessage: UILabel!
-    @IBOutlet weak var txtFirstName: UITextField!
-    @IBOutlet weak var txtLastName: UITextField!
-    @IBOutlet weak var btnMale: UIButton!
-    @IBOutlet weak var btnFemale: UIButton!
+    
+    @IBOutlet weak var txtAge: UITextField!
+    @IBOutlet weak var txtWeight: UITextField!
+    @IBOutlet weak var txtHeight: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        addKeyboardListeners()
+        ref = Database.database().reference()
+        
+
+    }
     
     /**
      @var ref
@@ -34,79 +37,17 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
      @brief The handler for the auth state listener, to allow cancelling later.
      */
     var handle: AuthStateDidChangeListenerHandle?
-
-    
-    /**
-     @var selectedGender
-     @brief Temporary variable to know what gender is selected.
-     */
-    var selectedGender: String? = nil
-    
-    // MAIN
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-        addKeyboardListeners()
-        ref = Database.database().reference()
-        
-    }
     
     // MARK: Chaning the status bar's style to white
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
-    // MARK: - Function for the Next button's action
-    @IBAction func nextPage(_ sender: UIButton) {
-        
-//        let userReference = ref?.child("users")
-//        //print(userReference?.description()) : "https://codex-move.firebaseio.com/users"
-        
-        if let user = Auth.auth().currentUser {
-            ref?.child("users").child(user.uid).setValue(["First Name" : self.txtFirstName.text!, "Last Name" : self.txtLastName.text!, "Gender" : self.selectedGender!])
-            
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfoBoardID") as! MoreInfoViewController
-            
-            self.present(vc, animated: true, completion: nil)
-            
-            
-        }
-
-    }
-    
-    
-    
-    // MARK: - Functions for selecting gender
-    // When selecting a gender, it should put its alpha to 100% (1.0) to let the user know that it is the correct choice—-50% (0.5) for the unselected choice.
-    
-    // Male Action
-    @IBAction func selectedMale(_ sender: UIButton) {
-        // "Selecting" the Male button
-        selectedGender = "Male"
-        btnMale.alpha = 1.0
-        btnMale.layer.shadowOpacity = 0.2
-        
-        // "Deselecting" the Female button
-        btnFemale.alpha = 0.5
-        btnFemale.layer.shadowOpacity = 0
-    }
-    
-    // Female Action
-    @IBAction func selectedFemale(_ sender: UIButton) {
-        // "Selecting" the Female button
-        selectedGender = "Female"
-        btnFemale.alpha = 1.0
-        btnFemale.layer.shadowOpacity = 0.2
-        
-        // "Deselecting" the Male button
-        btnMale.alpha = 0.5
-        btnMale.layer.shadowOpacity = 0
-    }
     
     // MARK: - Function for setting up the controller's UI
     private func setupUI() {
-        txtFirstName.delegate = self
-        txtLastName.delegate = self
+        txtAge.delegate = self
+        txtHeight.delegate = self
+        txtWeight.delegate = self
         
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -166,16 +107,25 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
     // MARK: Keyboard events
     // Event for pressing Return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == txtFirstName {
+        if textField == txtAge {
             // When Return key is pressed, the focus goes to the next field
-            txtLastName.becomeFirstResponder()
+            txtWeight.becomeFirstResponder()
         }
-        if textField == txtLastName {
+        if textField == txtWeight {
             // When Return key is pressed, the focus goes to the next field
-            txtLastName.resignFirstResponder()
+            txtHeight.resignFirstResponder()
             
         }
-
+        
         return true
     }
+
+    
+
+    @IBAction func nextBtn(_ sender: UIButton) {
+        let user = Auth.auth().currentUser
+        ref?.child("users").child(user!.uid).updateChildValues(["Age" : self.txtAge.text!, "Weight" : self.txtWeight.text!, "Height" : self.txtHeight.text!])
+    }
+
+
 }
