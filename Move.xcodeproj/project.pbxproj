@@ -30,6 +30,8 @@
 		9B9F366321A943550077A560 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4FE9F8219F706E00B9ECF9 /* TextFieldEffects.framework */; };
 		CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 		CF1DB95B21A6567200214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
+		CF1DB95D21ACDA1500214807 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95C21ACDA1500214807 /* MoreInfoViewController.swift */; };
+		CF1DB95E21ACDA1600214807 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95C21ACDA1500214807 /* MoreInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,7 @@
 		AB4C4361983FED386E296528 /* Pods-Move.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B0DE5EA4C8EB74BD9D422C /* Pods-Move.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.release.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.release.xcconfig"; sourceTree = "<group>"; };
 		CF1DB95921A654A000214807 /* EmailSentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSentViewController.swift; sourceTree = "<group>"; };
+		CF1DB95C21ACDA1500214807 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,7 @@
 		9B61A6E5219A6C930052F6D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CF1DB95C21ACDA1500214807 /* MoreInfoViewController.swift */,
 				CF1DB95921A654A000214807 /* EmailSentViewController.swift */,
 				9B345473219E743C0035DD86 /* RegisterPageViewController.swift */,
 				9B8135A921A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift */,
@@ -415,6 +419,7 @@
 				9B34546F219D2BFA0035DD86 /* SignInViewController.swift in Sources */,
 				9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */,
 				9B345472219E3E0E0035DD86 /* Workout.swift in Sources */,
+				CF1DB95D21ACDA1500214807 /* MoreInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF1DB95E21ACDA1600214807 /* MoreInfoViewController.swift in Sources */,
 				9B61A6DA219A6BCB0052F6D7 /* MoveTests.swift in Sources */,
 				CF1DB95B21A6567200214807 /* EmailSentViewController.swift in Sources */,
 			);
