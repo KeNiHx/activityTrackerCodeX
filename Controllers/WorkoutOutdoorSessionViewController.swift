@@ -16,8 +16,9 @@ class WorkoutOutdoorSessionViewController: UIViewController {
      */
     @IBOutlet weak var lblWorkoutType: UILabel!
     @IBOutlet weak var btnStartWorkout: UIButton!
-    @IBOutlet weak var viewSettingGoals: UIView!
     @IBOutlet weak var viewWorkoutDetails: UIView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class WorkoutOutdoorSessionViewController: UIViewController {
     private func setupUI() {
         // Adding shadows on the floating views
         viewWorkoutDetails.layer.shadowOpacity = 0.5
-        viewWorkoutDetails.layer.shadowRadius = 15
+        viewWorkoutDetails.layer.shadowRadius = 20
         viewWorkoutDetails.layer.shadowOffset = CGSize(width: 1, height: 2)
         viewWorkoutDetails.layer.cornerRadius = 8
     

@@ -24,25 +24,26 @@ class RegistrationChoosingPhotoViewController: UIViewController {
     
     // MARK: - Function for choosing the user's photo
     @IBAction func choosePhoto(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Profile Photo", message: "Choose your available options.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Profile Photo", message: "Choose your available options.", preferredStyle: .actionSheet)
+        
+        let picker = MMSProfileImagePicker.init()
         
         alert.addAction(UIAlertAction(title: "Take a Photo", style: .default, handler: { (UIAlertAction) in
-                let takePhoto = MMSProfileImagePicker.init()
-                takePhoto.delegate = self as? MMSProfileImagePickerDelegate
-                takePhoto.select(fromCamera: takePhoto)
+                picker.delegate = self as? MMSProfileImagePickerDelegate
+                picker.select(fromCamera: self)
         }))
         
         alert.addAction(UIAlertAction(title: "Choose From Library", style: .default, handler: { (UIAlertAction) in
-                let chooseFromLibrary = MMSProfileImagePicker.init()
-                chooseFromLibrary.delegate = self as? MMSProfileImagePickerDelegate
-                chooseFromLibrary.select(fromPhotoLibrary: self)
+                picker.delegate = self as? MMSProfileImagePickerDelegate
+                picker.select(fromPhotoLibrary: self)
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (UIAlertAction) in
             self.dismiss(animated: true, completion: nil)
         }))
         
         self.present(alert, animated: true, completion: nil)
     }
+    
     
 }
