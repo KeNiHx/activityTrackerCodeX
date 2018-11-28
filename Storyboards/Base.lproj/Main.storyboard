@@ -1498,6 +1498,7 @@ However, you might wanna choose a display name and gender first. These are requi
                         <outlet property="btnFemale" destination="jIN-Ng-iUf" id="kqo-8Q-Pnh"/>
                         <outlet property="btnMale" destination="dgQ-7q-xTM" id="uRw-X4-v0I"/>
                         <outlet property="btnNext" destination="hhO-5Z-Ctj" id="ygh-SA-JaU"/>
+                        <outlet property="lblMessage" destination="cDP-Pm-aGb" id="NYf-Tp-Hk4"/>
                         <outlet property="txtFirstName" destination="DKC-si-gby" id="TZ4-eL-N92"/>
                         <outlet property="txtLastName" destination="hcI-qe-Xa6" id="6Z5-Cw-iGb"/>
                     </connections>

@@ -5,12 +5,12 @@
 //  Created by Lee Palisoc on 2018-11-22.
 //  Copyright © 2018 CodeX. All rights reserved.
 //
-
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate {
-
+    
     /**
      @IBOutlets
      @brief Outlets needed for the view controller.
@@ -27,7 +27,13 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
      @brief Creates a reference to the Firebase Database
      */
     var ref: DatabaseReference?
-
+    
+    /**
+     @var handle
+     @brief The handler for the auth state listener, to allow cancelling later.
+     */
+    var handle: AuthStateDidChangeListenerHandle?
+    
     
     /**
      @var selectedGender
@@ -44,13 +50,27 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
         
     }
     
+    // MARK: Chaning the status bar's style to white
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Function for the Next button's action
     @IBAction func nextPage(_ sender: UIButton) {
-        self.ref?.child("users").childByAutoId().setValue(["First Name" : txtFirstName.text, "Last Name" : txtLastName.text, "Gender" : selectedGender])
         
-//        ref?.child("First Name").childByAutoId().setValue(txtFirstName.text)
-//        ref?.child("Last Name").childByAutoId().setValue(txtLastName.text)
-//        ref?.child("Gender").childByAutoId().setValue(selectedGender)
+        //        let userReference = ref?.child("users")
+        //        //print(userReference?.description()) : "https://codex-move.firebaseio.com/users"
+        
+        if let user = Auth.auth().currentUser {
+            ref?.child("users").child(user.uid).setValue(["First Name" : self.txtFirstName.text!, "Last Name" : self.txtLastName.text!, "Gender" : self.selectedGender!])
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfoBoardID") as! MoreInfoViewController
+            
+            self.present(vc, animated: true, completion: nil)
+            
+            
+        }
+        
     }
     
     
@@ -87,18 +107,27 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
         txtFirstName.delegate = self
         txtLastName.delegate = self
         
+        // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+        
     }
     
-    // MARK: Overriding viewWillAppear and viewWillDisappear functions
-    // Controller's viewWillAppear
+    // FIREBASE
+    
+    // MARK: Adding Firebase's Authentications
+    // The controller's viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
-        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+        }
     }
     
-    // Controller's viewWillDisappear
+    // The controller's viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
-        
+        Auth.auth().removeStateDidChangeListener(handle!)
     }
+    
     
     // MARK: Start listening for keyboard hide/show events
     private func addKeyboardListeners() {
@@ -138,13 +167,14 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == txtFirstName {
             // When Return key is pressed, the focus goes to the next field
-            txtFirstName.becomeFirstResponder()
+            txtLastName.becomeFirstResponder()
         }
         if textField == txtLastName {
             // When Return key is pressed, the focus goes to the next field
-            txtLastName.becomeFirstResponder()
+            txtLastName.resignFirstResponder()
+            
         }
-
+        
         return true
     }
 }
