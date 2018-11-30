@@ -57,10 +57,6 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
     
     // MARK: - Function for the Next button's action
     @IBAction func nextPage(_ sender: UIButton) {
-        
-        //        let userReference = ref?.child("users")
-        //        //print(userReference?.description()) : "https://codex-move.firebaseio.com/users"
-        
         if let user = Auth.auth().currentUser {
             ref?.child("users").child(user.uid).setValue(["First Name" : self.txtFirstName.text!, "Last Name" : self.txtLastName.text!, "Gender" : self.selectedGender!])
             

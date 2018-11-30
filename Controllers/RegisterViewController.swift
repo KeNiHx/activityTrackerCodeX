@@ -127,8 +127,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Action for the Continue button
     @IBAction func registerUser(_ sender: Any?) {
-        print("TEST: REGISTERING...")
-        
         createUser(email: txtEmailAddress.text!, password:txtPassword.text!)
         
 //        let registerPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdditionalInfoPageViewController") as! RegisterPageViewController
@@ -262,7 +260,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         banner.show()
                         return
                     } else {
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EmailSentBoardID") as! EmailSentViewController
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "RequiredInfo2BoardID") as! RegisterRequiredInfoViewController
                         
                         self.present(vc, animated: true, completion: nil)
                     }

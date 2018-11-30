@@ -41,6 +41,8 @@
 		9B9EB56321A925D200C41A89 /* WorkoutButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9EB56221A925D200C41A89 /* WorkoutButtonsViewController.swift */; };
 		9B9F366321A943550077A560 /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4FE9F8219F706E00B9ECF9 /* TextFieldEffects.framework */; };
 		9B9F366621AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F366521AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift */; };
+		9BE62DA421B0EE8A00A2965F /* ProgressBarDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE62DA321B0EE8A00A2965F /* ProgressBarDraw.swift */; };
+		9BE62DA621B0EF5600A2965F /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE62DA521B0EF5600A2965F /* ProgressBarView.swift */; };
 		CF1DB95A21A6567100214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 		CF1DB95B21A6567200214807 /* EmailSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1DB95921A654A000214807 /* EmailSentViewController.swift */; };
 /* End PBXBuildFile section */
@@ -96,6 +98,8 @@
 		9B975ED521A0B04800A9D46B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B9EB56221A925D200C41A89 /* WorkoutButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutButtonsViewController.swift; sourceTree = "<group>"; };
 		9B9F366521AB15E30077A560 /* WorkoutOutdoorSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutOutdoorSessionViewController.swift; sourceTree = "<group>"; };
+		9BE62DA321B0EE8A00A2965F /* ProgressBarDraw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarDraw.swift; sourceTree = "<group>"; };
+		9BE62DA521B0EF5600A2965F /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		A1085E8A51BB09673585F1E7 /* Pods-MoveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoveTests/Pods-MoveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB4C4361983FED386E296528 /* Pods-Move.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.debug.xcconfig"; sourceTree = "<group>"; };
 		C5B0DE5EA4C8EB74BD9D422C /* Pods-Move.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Move.release.xcconfig"; path = "Pods/Target Support Files/Pods-Move/Pods-Move.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,7 +159,8 @@
 		9B61A6B5219A6BCA0052F6D7 = {
 			isa = PBXGroup;
 			children = (
-				9B61A6E8219A73F10052F6D7 /* Constructors */,
+				9BE62DA221B0EE3F00A2965F /* Views */,
+				9B61A6E8219A73F10052F6D7 /* Models */,
 				9B61A6E4219A6C890052F6D7 /* Storyboards */,
 				9B61A6E5219A6C930052F6D7 /* Controllers */,
 				9B698028219BCEEA006686A8 /* Frameworks */,
@@ -226,13 +231,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		9B61A6E8219A73F10052F6D7 /* Constructors */ = {
+		9B61A6E8219A73F10052F6D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				9B61A6E9219A74010052F6D7 /* User.swift */,
 				9B345471219E3E0E0035DD86 /* Workout.swift */,
 			);
-			path = Constructors;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9B698028219BCEEA006686A8 /* Frameworks */ = {
@@ -244,6 +249,15 @@
 				2DECB9816B4715C24A4103B9 /* Pods_MoveTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BE62DA221B0EE3F00A2965F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BE62DA321B0EE8A00A2965F /* ProgressBarDraw.swift */,
+				9BE62DA521B0EF5600A2965F /* ProgressBarView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,6 +486,7 @@
 				9B8135AA21A72C9F00BB9EF9 /* RegisterRequiredInfoViewController.swift in Sources */,
 				9B61A6C4219A6BCA0052F6D7 /* WelcomeViewController.swift in Sources */,
 				9B9EB56321A925D200C41A89 /* WorkoutButtonsViewController.swift in Sources */,
+				9BE62DA421B0EE8A00A2965F /* ProgressBarDraw.swift in Sources */,
 				9B25625421AB454C0073E4CC /* RegistrationChoosingPhotoViewController.swift in Sources */,
 				9B345474219E743C0035DD86 /* RegisterPageViewController.swift in Sources */,
 				9B61A6CA219A6BCA0052F6D7 /* Move.xcdatamodeld in Sources */,
@@ -479,6 +494,7 @@
 				9B260F7221AE2497000F9AEB /* MoreInfoViewController.swift in Sources */,
 				9B61A6C2219A6BCA0052F6D7 /* AppDelegate.swift in Sources */,
 				9B345472219E3E0E0035DD86 /* Workout.swift in Sources */,
+				9BE62DA621B0EF5600A2965F /* ProgressBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
