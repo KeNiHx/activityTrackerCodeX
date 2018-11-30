@@ -21,6 +21,7 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
     @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var btnMale: UIButton!
     @IBOutlet weak var btnFemale: UIButton!
+    var retrievedEmail = ""
     
     /**
      @var ref
@@ -58,11 +59,27 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
     // MARK: - Function for the Next button's action
     @IBAction func nextPage(_ sender: UIButton) {
         
-        //        let userReference = ref?.child("users")
-        //        //print(userReference?.description()) : "https://codex-move.firebaseio.com/users"
-        
+        let userID = Auth.auth().currentUser?.uid
         if let user = Auth.auth().currentUser {
             ref?.child("users").child(user.uid).setValue(["First Name" : self.txtFirstName.text!, "Last Name" : self.txtLastName.text!, "Gender" : self.selectedGender!])
+            
+        // MARK: - This will pull from the Firebase database the email and concatanate it in the text box field
+            ref?.child("user").child(userID!).observeSingleEvent(of: .value, with: {(DataSnapshot) in
+                // Get user value
+                let value = DataSnapshot.value as? NSDictionary
+                self.retrievedEmail = value?["Email"] as? String ?? ""
+                
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+            lblMessage.text = """
+            Hi, \(retrievedEmail) ! You are now registered and can finally use the app."
+            
+            However, you might wanna choose a display name and gender first. These are required to set up your profile.
+            """
+            
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfoBoardID") as! MoreInfoViewController
             
@@ -72,8 +89,6 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
         }
         
     }
-    
-    
     
     // MARK: - Functions for selecting gender
     // When selecting a gender, it should put its alpha to 100% (1.0) to let the user know that it is the correct choice—-50% (0.5) for the unselected choice.

@@ -22,7 +22,6 @@ class MoreInfoViewController: UIViewController, UITextFieldDelegate {
         addKeyboardListeners()
         ref = Database.database().reference()
         
-        
     }
     
     /**
@@ -50,8 +49,6 @@ class MoreInfoViewController: UIViewController, UITextFieldDelegate {
         
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        
-        
     }
     
     // FIREBASE
@@ -118,9 +115,6 @@ class MoreInfoViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-    
-    
-    
     @IBAction func nextBtn(_ sender: UIButton) {
         let user = Auth.auth().currentUser
         ref?.child("users").child(user!.uid).updateChildValues(["Age" : self.txtAge.text!, "Weight" : self.txtWeight.text!, "Height" : self.txtHeight.text!])

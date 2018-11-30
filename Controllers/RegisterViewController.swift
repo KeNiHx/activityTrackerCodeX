@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import NotificationBannerSwift
+import FirebaseDatabase
+import FirebaseAuth
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
@@ -31,6 +33,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     var handle: AuthStateDidChangeListenerHandle?
     
     /**
+     @var ref
+     @brief Creates a reference to the Firebase Database
+     */
+    var ref: DatabaseReference?
+    
+   
+    
+    /**
      @var passedEmail
      @var passedDescription
      @brief variables for getting the passed email (so the user don't need to retype it when asked to sign up) and passed description (for informing the user that the account hasn't signed up yet) from the signin page.
@@ -45,6 +55,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setupUI()
         addKeyboardListeners()
+        ref = Database.database().reference()
     }
     
     // MARK: Changing the status bar's style to colour white
@@ -131,6 +142,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         
         createUser(email: txtEmailAddress.text!, password:txtPassword.text!)
         
+        //Store the mail into the Firebase Database
+        if let user = Auth.auth().currentUser {
+            ref?.child("users").child(user.uid).setValue(["Email" : self.txtEmailAddress.text!])
+        }
 //        let registerPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdditionalInfoPageViewController") as! RegisterPageViewController
 //
 //        self.present(registerPageViewController, animated: true, completion: nil)

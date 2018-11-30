@@ -27,6 +27,9 @@ target 'Move' do
     
     # Choosing profile image
     pod 'MMSProfileImagePicker'
+    
+    # FSCalendar
+    pod 'FSCalendar'
 
   target 'MoveTests' do
     inherit! :search_paths
