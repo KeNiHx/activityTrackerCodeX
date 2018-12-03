@@ -1022,6 +1022,9 @@ These are optionals, you can skip if you prefer not to answer.</string>
                                         <real key="value" value="18.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="skipBtn:" destination="21E-HG-06u" eventType="touchUpInside" id="ZVc-sa-GO6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32877659799999998" green="0.329051435" blue="0.32881915569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2008,6 +2011,12 @@ However, you might wanna choose a display name and gender first. These are requi
                                     <constraint firstAttribute="width" secondItem="Qrw-Cc-vNy" secondAttribute="height" multiplier="1:1" id="MrN-ft-Fqo"/>
                                     <constraint firstAttribute="width" constant="128" id="b5l-ti-htX"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="64"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="317" translatesAutoresizingMaskIntoConstraints="NO" id="6Ff-vV-uDY">
                                 <rect key="frame" x="29" y="118" width="317" height="69"/>
@@ -2021,14 +2030,14 @@ This is also optional, just press "Finish Setup" if you prefer not to share a ph
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLz-J0-cx8">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLz-J0-cx8">
                                 <rect key="frame" x="88" y="460" width="199" height="37"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="afX-kG-9kE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="14"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Save Photo">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -2045,6 +2054,9 @@ This is also optional, just press "Finish Setup" if you prefer not to share a ph
                                         <real key="value" value="18.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickBtnSavePhoto:" destination="9vd-4w-JoL" eventType="touchUpInside" id="uC0-5E-9gk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU2-53-Rvy">
                                 <rect key="frame" x="123.5" y="238" width="128" height="128"/>
@@ -2076,6 +2088,9 @@ This is also optional, just press "Finish Setup" if you prefer not to share a ph
                                         <real key="value" value="18.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickBtnFinishSetup:" destination="9vd-4w-JoL" eventType="touchUpInside" id="XmE-pv-d4J"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53901541233062744" green="0.73930233716964722" blue="0.65745037794113159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2102,13 +2117,15 @@ This is also optional, just press "Finish Setup" if you prefer not to share a ph
                         <viewLayoutGuide key="safeArea" id="rvO-iX-1V2"/>
                     </view>
                     <connections>
+                        <outlet property="btnFinishSetup" destination="1bA-ZL-NAU" id="fGh-CX-Tq5"/>
                         <outlet property="btnPhotoPicker" destination="GU2-53-Rvy" id="iMt-IY-T2g"/>
-                        <outlet property="imgProfilePhoto" destination="Qrw-Cc-vNy" id="MsS-R1-hcb"/>
+                        <outlet property="btnSavePhoto" destination="rLz-J0-cx8" id="Vso-Uc-76d"/>
+                        <outlet property="imgProfilePhoto" destination="Qrw-Cc-vNy" id="XhM-nX-Qlz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVA-PA-yMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4224.8000000000002" y="-163.26836581709148"/>
+            <point key="canvasLocation" x="4210" y="-164"/>
         </scene>
         <!--Calendar Chart Child View Controller-->
         <scene sceneID="5nH-o9-4AX">
@@ -2124,24 +2141,38 @@ This is also optional, just press "Finish Setup" if you prefer not to share a ph
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFZ-bR-Z1u">
                                         <rect key="frame" x="0.0" y="11" width="375" height="600"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnp-hU-ucw">
-                                                <rect key="frame" x="160.5" y="54" width="54" height="41"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Hello"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8C-Zi-YuL">
-                                                <rect key="frame" x="153.5" y="475" width="68" height="41"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="World!"/>
-                                            </button>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-th-Dfc">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="JOi-YM-HQN"/>
+                                                </constraints>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="u51-93-95K">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u51-93-95K" id="ZDe-am-khI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="nO5-3F-VL6" id="tz2-2F-qlP"/>
+                                                    <outlet property="delegate" destination="nO5-3F-VL6" id="T8D-As-u1l"/>
+                                                </connections>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="7gC-th-Dfc" secondAttribute="trailing" id="0Pf-4D-VQC"/>
                                             <constraint firstAttribute="height" constant="600" id="BOw-uD-Nr6"/>
-                                            <constraint firstItem="t8C-Zi-YuL" firstAttribute="centerX" secondItem="AFZ-bR-Z1u" secondAttribute="centerX" id="DgT-ZA-npQ"/>
-                                            <constraint firstItem="tnp-hU-ucw" firstAttribute="top" secondItem="AFZ-bR-Z1u" secondAttribute="top" constant="54" id="H5O-Km-nvt"/>
-                                            <constraint firstAttribute="bottom" secondItem="t8C-Zi-YuL" secondAttribute="bottom" constant="84" id="UA5-67-NUh"/>
-                                            <constraint firstItem="tnp-hU-ucw" firstAttribute="centerX" secondItem="AFZ-bR-Z1u" secondAttribute="centerX" id="yTS-Ro-IQM"/>
+                                            <constraint firstItem="7gC-th-Dfc" firstAttribute="leading" secondItem="AFZ-bR-Z1u" secondAttribute="leading" id="C90-e8-Wpf"/>
+                                            <constraint firstItem="7gC-th-Dfc" firstAttribute="top" secondItem="AFZ-bR-Z1u" secondAttribute="top" id="Fpm-Se-wPb"/>
+                                            <constraint firstItem="7gC-th-Dfc" firstAttribute="leading" secondItem="AFZ-bR-Z1u" secondAttribute="leading" id="bkK-NF-H1h"/>
+                                            <constraint firstAttribute="bottom" secondItem="7gC-th-Dfc" secondAttribute="bottom" id="hjT-q1-rIA"/>
+                                            <constraint firstAttribute="trailing" secondItem="7gC-th-Dfc" secondAttribute="trailing" id="xOy-zN-hSY"/>
                                         </constraints>
                                     </view>
                                 </subviews>

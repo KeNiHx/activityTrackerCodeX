@@ -14,15 +14,25 @@ import FirebaseDatabase
 import FirebaseAuth
 
 
-class CalendarChartChildViewController: UIViewController{
+class CalendarChartChildViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-
+    
     var ref: DatabaseReference?
     var handle: AuthStateDidChangeListenerHandle?
     var databaseHandle: DatabaseHandle?
     var postData = [String]()
     
+    let list = ["milk", "honey", "bread", "tacos", "tomatoes" ]
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return(list.count)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default,reuseIdentifier: "cell")
+        cell.textLabel?.text = list[indexPath.row]
+        return(cell)
+    }
     
     private func setupUI() {
         
