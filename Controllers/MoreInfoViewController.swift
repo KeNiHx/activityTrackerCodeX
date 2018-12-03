@@ -118,7 +118,20 @@ class MoreInfoViewController: UIViewController, UITextFieldDelegate {
     @IBAction func nextBtn(_ sender: UIButton) {
         let user = Auth.auth().currentUser
         ref?.child("users").child(user!.uid).updateChildValues(["Age" : self.txtAge.text!, "Weight" : self.txtWeight.text!, "Height" : self.txtHeight.text!])
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfo2BoardID") as! RegistrationChoosingPhotoViewController
+        
+        self.present(vc, animated: true, completion: nil)
+        
+        
     }
     
+    @IBAction func skipBtn(_ sender: UIButton) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfo2BoardID") as! RegistrationChoosingPhotoViewController
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
     
 }

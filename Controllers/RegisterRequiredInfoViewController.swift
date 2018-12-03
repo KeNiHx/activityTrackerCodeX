@@ -27,7 +27,7 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
      @var ref
      @brief Creates a reference to the Firebase Database
      */
-    var ref: DatabaseReference?
+    var ref: DatabaseReference!
 
     /**
      @var handle
@@ -45,10 +45,9 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
     // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
         setupUI()
         addKeyboardListeners()
-        ref = Database.database().reference()
-
     }
 
     // MARK: Chaning the status bar's style to white
@@ -59,29 +58,11 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
     // MARK: - Function for the Next button's action
     @IBAction func nextPage(_ sender: UIButton) {
         
-        let userID = Auth.auth().currentUser?.uid
+        
         if let user = Auth.auth().currentUser {
             ref?.child("users").child(user.uid).setValue(["First Name" : self.txtFirstName.text!, "Last Name" : self.txtLastName.text!, "Gender" : self.selectedGender!])
 
-        // MARK: - This will pull from the Firebase database the email and concatanate it in the text box field
-            ref?.child("user").child(userID!).observeSingleEvent(of: .value, with: {(DataSnapshot) in
-                // Get user value
-                let value = DataSnapshot.value as? NSDictionary
-                self.retrievedEmail = value?["Email"] as? String ?? ""
-
-
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-
-            lblMessage.text = """
-            Hi, \(retrievedEmail) ! You are now registered and can finally use the app."
-
-            However, you might wanna choose a display name and gender first. These are required to set up your profile.
-            """
-
-
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfoBoardID") as! MoreInfoViewController
+       let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfoBoardID") as! MoreInfoViewController
 
             self.present(vc, animated: true, completion: nil)
 
@@ -125,7 +106,26 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
 
-
+        if let userID = Auth.auth().currentUser?.uid {
+            print(ref)
+            print(userID)
+            ref.child("users").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let email = value?["Email"] as! String
+                
+                self.lblMessage.text = """
+                Hi, \(email)! You are now registered and can finally use the app.
+                
+                However, you might wanna choose a display name and gender first. These are required to set up your profile.
+                """
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        } else {
+            print("NO USER!!!!")
+        }
+        
+       
     }
 
     // FIREBASE

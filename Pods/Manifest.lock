@@ -18,6 +18,9 @@ PODS:
   - Firebase/DynamicLinks (5.12.0):
     - Firebase/CoreOnly
     - FirebaseDynamicLinks (= 3.1.1)
+  - Firebase/Storage (5.12.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.3)
   - FirebaseAnalytics (5.3.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.3)
@@ -47,6 +50,10 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseStorage (3.0.3):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FSCalendar (2.8.0)
   - GoogleAppMeasurement (5.3.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
@@ -98,6 +105,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/DynamicLinks
+  - Firebase/Storage
   - FSCalendar
   - MMSProfileImagePicker
   - NotificationBannerSwift
@@ -117,6 +125,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseDynamicLinks
     - FirebaseInstanceID
+    - FirebaseStorage
     - FSCalendar
     - GoogleAppMeasurement
     - GoogleUtilities
@@ -144,6 +153,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
   FirebaseDynamicLinks: 000130a3fc3d81ac7322731b895009f3199ef584
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
@@ -158,6 +168,6 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 3259db582207957a74af947b337392bc38db21d6
+PODFILE CHECKSUM: 190bcb5621e482c98b9133c19ee453e601c3b003
 
 COCOAPODS: 1.5.3

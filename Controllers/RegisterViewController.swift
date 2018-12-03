@@ -53,9 +53,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
         setupUI()
         addKeyboardListeners()
-        ref = Database.database().reference()
+        
     }
     
     // MARK: Changing the status bar's style to colour white
@@ -140,10 +141,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func registerUser(_ sender: Any?) {
         createUser(email: txtEmailAddress.text!, password:txtPassword.text!)
         
-        //Store the mail into the Firebase Database
-        if let user = Auth.auth().currentUser {
-            ref?.child("users").child(user.uid).setValue(["Email" : self.txtEmailAddress.text!])
-        }
 //        let registerPageViewController = self.storyboard?.instantiateViewController(withIdentifier: "AdditionalInfoPageViewController") as! RegisterPageViewController
 //
 //        self.present(registerPageViewController, animated: true, completion: nil)
@@ -261,6 +258,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             }
             // Send a user an email verification email and display the verify email view
             else {
+                
+                // Store the mail into the Firebase Database
+                if let user = Auth.auth().currentUser {
+                    self.ref?.child("users").child(user.uid).setValue(["Email" : self.txtEmailAddress.text!])
+                }
+                
                 let actionCodeSettings = ActionCodeSettings.init()
                 actionCodeSettings.handleCodeInApp = true
                 let user = Auth.auth().currentUser

@@ -11,6 +11,7 @@ target 'Move' do
     pod 'Firebase/Auth'
     pod 'Firebase/DynamicLinks'
     pod 'Firebase/Database'
+    pod 'Firebase/Storage'
     
     # NotificationBanner for in-app notifications
     pod 'NotificationBannerSwift'
