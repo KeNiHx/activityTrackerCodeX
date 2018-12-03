@@ -26,9 +26,6 @@ target 'Move' do
     # Loading view when a task is too long to wait
     pod 'DSLoadable'
     
-    # Choosing profile image
-    pod 'MMSProfileImagePicker'
-    
     # FSCalendar
     pod 'FSCalendar'
 

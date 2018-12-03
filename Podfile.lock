@@ -82,9 +82,6 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - leveldb-library (1.20)
   - MarqueeLabel/Swift (3.2.0)
-  - MMSCameraViewController (1.2.1)
-  - MMSProfileImagePicker (1.5.1):
-    - MMSCameraViewController (~> 1.2.1)
   - MSAutoView (2.8.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -107,7 +104,6 @@ DEPENDENCIES:
   - Firebase/DynamicLinks
   - Firebase/Storage
   - FSCalendar
-  - MMSProfileImagePicker
   - NotificationBannerSwift
   - TextFieldEffects
 
@@ -132,8 +128,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - MarqueeLabel
-    - MMSCameraViewController
-    - MMSProfileImagePicker
     - MSAutoView
     - nanopb
     - NotificationBannerSwift
@@ -160,14 +154,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
-  MMSCameraViewController: 70e128c8398686e323645e032aa8d1ea2b0cb54a
-  MMSProfileImagePicker: 46b3640a9d9c97ecf711e514cefdc53a2aac21e1
   MSAutoView: d2a5d8f34bda0df50d60e5625998af0b215b773f
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NotificationBannerSwift: 49fc4be7fabada55b189b50e72184c92edd5f7f7
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 190bcb5621e482c98b9133c19ee453e601c3b003
+PODFILE CHECKSUM: 2633afb2b81226145dd3db38e30014ecb593f045
 
 COCOAPODS: 1.5.3
