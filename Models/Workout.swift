@@ -27,4 +27,3 @@ enum WorkoutType {
     case indoorRunning, indoorWalking, indoorCycling, outdoorRunning, outdoorWalking, outdoorCycling
 }
 
-
