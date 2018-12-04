@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import DSLoadable
 
 class MoreInfoViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,12 +17,12 @@ class MoreInfoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtWeight: UITextField!
     @IBOutlet weak var txtHeight: UITextField!
     
+    // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         addKeyboardListeners()
         ref = Database.database().reference()
-        
     }
     
     /**
@@ -110,24 +111,28 @@ class MoreInfoViewController: UIViewController, UITextFieldDelegate {
         if textField == txtWeight {
             // When Return key is pressed, the focus goes to the next field
             txtHeight.resignFirstResponder()
-            
         }
         
         return true
     }
+    
+    // MARK: - Action for pressing the Next button
     @IBAction func nextBtn(_ sender: UIButton) {
+        updateUserInfo()
+    }
+    
+    // MARK: - Function for updating the user's info in the database
+    private func updateUserInfo() {
         let user = Auth.auth().currentUser
-        ref?.child("users").child(user!.uid).updateChildValues(["Age" : self.txtAge.text!, "Weight" : self.txtWeight.text!, "Height" : self.txtHeight.text!])
+        ref?.child("users").child("info").child(user!.uid).updateChildValues(["age" : self.txtAge.text ?? "", "weight" : self.txtWeight.text ?? "", "height" : self.txtHeight.text ?? ""])
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfo2BoardID") as! RegistrationChoosingPhotoViewController
         
         self.present(vc, animated: true, completion: nil)
-        
-        
     }
     
+    // MARK: - Action for pressing the Skip button
     @IBAction func skipBtn(_ sender: UIButton) {
-        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfo2BoardID") as! RegistrationChoosingPhotoViewController
         
         self.present(vc, animated: true, completion: nil)

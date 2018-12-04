@@ -11,6 +11,7 @@ import Firebase
 import NotificationBannerSwift
 import FirebaseDatabase
 import FirebaseAuth
+import DSLoadable
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
@@ -21,7 +22,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtEmailAddress: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
-    @IBOutlet weak var btnContinue: UIButton!
+    @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var lblSubtitle: UILabel!
     @IBOutlet weak var lblWarning: UILabel!
@@ -37,8 +38,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
      @brief Creates a reference to the Firebase Database
      */
     var ref: DatabaseReference?
-    
-   
     
     /**
      @var passedEmail
@@ -120,7 +119,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func shortPassword(_ sender: UITextField) {
         if sender.text!.count >= 1 && sender.text!.count <= 4 {
             lblWarning.text = "Password is too short."
-            btnContinue.isEnabled = false
+            btnSignUp.isEnabled = false
+            btnSignUp.alpha = 0.5
         } else {
             lblWarning.text = ""
         }
@@ -130,10 +130,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func passwordMatches(_ sender: UITextField) {
         if sender.text != self.txtPassword.text {
             lblWarning.text = "Passwords don't match."
-            btnContinue.isEnabled = false
+            btnSignUp.isEnabled = false
+            btnSignUp.alpha = 0.5
         } else {
             lblWarning.text = ""
-            btnContinue.isEnabled = true
+            btnSignUp.isEnabled = true
+            btnSignUp.alpha = 1.0
         }
     }
     
@@ -172,17 +174,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             lblSubtitle.text = passedDescription
         }
         
-        // Designing the Continue button
-        btnContinue.layer.shadowOpacity = 0.2
-        btnContinue.layer.shadowOffset = CGSize(width: 1, height: 2)
-        btnContinue.layer.shadowRadius = 15
-        
-        btnCancel.layer.shadowOpacity = 0.2
-        btnCancel.layer.shadowOffset = CGSize(width: 1, height: 2)
-        btnCancel.layer.shadowRadius = 15
-        
         // Disabling the Continue button
-        btnContinue.isEnabled = false
+        btnSignUp.isEnabled = false
+        btnSignUp.cornerRadius = 18.5
         
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -234,6 +228,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Function for creating the user
     private func createUser(email: String, password: String) {
+        // Setting the loading indicator
+        btnSignUp.setTitle("", for: .normal)
+        btnSignUp.loadableStartLoading()
+        
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             if error != nil {
                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
@@ -254,6 +252,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                             print(error.debugDescription)
                             self.lblWarning.text = "Something went wrong. Try again."
                     }
+                    
+                    // Something went wrong, stop the loading indicator
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        self.btnSignUp.loadableStopLoading()
+                    }
                 }
             }
             // Send a user an email verification email and display the verify email view
@@ -261,7 +264,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 
                 // Store the mail into the Firebase Database
                 if let user = Auth.auth().currentUser {
-                    self.ref?.child("users").child(user.uid).setValue(["Email" : self.txtEmailAddress.text!])
+                    self.ref?.child("users").child(user.uid).child("info").setValue(["email" : self.txtEmailAddress.text!])
                 }
                 
                 let actionCodeSettings = ActionCodeSettings.init()
@@ -278,6 +281,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         banner.show()
                         return
                     } else {
+                        
+                        // User has successfully been created, stop the indicator
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            self.btnSignUp.loadableStopLoading()
+                        }
+                        
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "RequiredInfo2BoardID") as! RegisterRequiredInfoViewController
                         
                         self.present(vc, animated: true, completion: nil)
@@ -285,7 +294,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 })
             }
             
-            guard let user = authResult?.user else {
+            guard (authResult?.user) != nil else {
                 return
             }
         }

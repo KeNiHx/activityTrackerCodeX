@@ -108,6 +108,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
         
         // Make sure Continue button is disabled
         btnContinue.isEnabled = false
+        btnContinue.cornerRadius = 18.5
         
         // Tap Gesture: For when the user taps outside the keyboard, the keyboard dismisses
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -217,9 +218,10 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
             //    """
             //}
             
-            let todayView = self.storyboard?.instantiateViewController(withIdentifier: "TodayViewBoardID") as! TodayViewController
-                self.dismiss(animated: true, completion: nil)
-                self.present(todayView, animated: true, completion: nil)
+            // If user has already logged in before, show the Today View Controller instead
+            if let home = (self.storyboard?.instantiateViewController(withIdentifier: "MainStoryboardID") as? UITabBarController) {
+                self.present(home, animated: true, completion: nil)
+            }
         }
         // Otherwise, show the login page
         else {
@@ -232,7 +234,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // The controller's viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            print("Starting @var handle listener...")
+            print("Welcome: Starting @var handle listener...")
             self.checkValidation()
         }
     }
@@ -240,7 +242,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     // The controller's viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
-        print("Removing @var handle listener...")
+        print("Welcome: Removing @var handle listener...")
         
         // Resetting the fields
         self.lblWarning.text = ""

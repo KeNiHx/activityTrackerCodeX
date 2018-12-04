@@ -37,7 +37,6 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        try! Auth.auth().signOut()
     }
     
     // MARK: Function for setting up the UI

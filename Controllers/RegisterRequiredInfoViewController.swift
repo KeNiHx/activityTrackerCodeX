@@ -57,23 +57,30 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
 
     // MARK: - Function for the Next button's action
     @IBAction func nextPage(_ sender: UIButton) {
-        
-        
+        updateUserInfo()
+    }
+    
+    // MARK: - Updating the user's database info
+    private func updateUserInfo() {
         if let user = Auth.auth().currentUser {
-            ref?.child("users").child(user.uid).setValue(["First Name" : self.txtFirstName.text!, "Last Name" : self.txtLastName.text!, "Gender" : self.selectedGender!])
-
-       let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfoBoardID") as! MoreInfoViewController
-
+            ref?.child("users").child(user.uid).child("info").child("name").setValue(["firstName" : self.txtFirstName.text!, "lastName" : self.txtLastName.text!])
+            
+            ref?.child("users").child(user.uid).child("info").updateChildValues(["gender" : selectedGender!])
+            
+            // User has successfully been updated, stop the indicator
+            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                self.btnNext.loadableStopLoading()
+            }
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "OptionalInfoBoardID") as! MoreInfoViewController
+            
             self.present(vc, animated: true, completion: nil)
-
-
         }
-
     }
 
     // MARK: - Functions for selecting gender
     // When selecting a gender, it should put its alpha to 100% (1.0) to let the user know that it is the correct choice—-50% (0.5) for the unselected choice.
-
+    
     // Male Action
     @IBAction func selectedMale(_ sender: UIButton) {
         // "Selecting" the Male button
@@ -107,11 +114,9 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
 
         if let userID = Auth.auth().currentUser?.uid {
-            print(ref)
-            print(userID)
-            ref.child("users").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+            ref.child("users").child(userID).child("info").observeSingleEvent(of: .value, with: {(snapshot) in
                 let value = snapshot.value as? NSDictionary
-                let email = value?["Email"] as! String
+                let email = value?["email"] as! String
                 
                 self.lblMessage.text = """
                 Hi, \(email)! You are now registered and can finally use the app.
@@ -187,7 +192,6 @@ class RegisterRequiredInfoViewController: UIViewController, UITextFieldDelegate 
         if textField == txtLastName {
             // When Return key is pressed, the focus goes to the next field
             txtLastName.resignFirstResponder()
-
         }
 
         return true
