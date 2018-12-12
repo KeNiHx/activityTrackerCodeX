@@ -56,7 +56,6 @@ class WorkoutButtonsViewController: UIViewController {
     }
     
     private func showOutdoorSessionController(viewController: UIViewController) {
-        self.dismiss(animated: true, completion: nil)
         self.present(viewController, animated: true, completion: nil)
     }
 }
