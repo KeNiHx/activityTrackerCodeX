@@ -642,7 +642,7 @@ class WorkoutOutdoorSessionViewController: UIViewController {
             case .open?:
                 print("")
             case .none:
-                print("")
+                print(" ")
         }
     }
     
