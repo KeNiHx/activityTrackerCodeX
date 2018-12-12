@@ -104,6 +104,16 @@ class WorkoutOutdoorSessionViewController: UIViewController {
     // Selected Goal
     private var selectedGoal: GoalType?
     
+    var progress = 0.01
+    var percent = 0.01
+    
+    /**
+     @UIViews
+     @brief Goal popup views
+    */
+    @IBOutlet weak var viewHalfGoal: UIView!
+    
+    
     // MAIN
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -217,6 +227,8 @@ class WorkoutOutdoorSessionViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.totalSteps = moveData.numberOfSteps as! Int
                     self!.lblTotalSteps.text = String(self!.totalSteps)
+                    
+                    self!.lblTotalCalories.text = String(format: "%.0f", (self?.calculateCalories(steps: self!.totalSteps))!)
                 }
             }
         }
@@ -286,6 +298,7 @@ class WorkoutOutdoorSessionViewController: UIViewController {
         timeElapsed += 1
         formatTime(interval: timeElapsed)
         updateInformation()
+        checkProgress()
     }
     
     // MARK: - Formatting the time
@@ -568,7 +581,7 @@ class WorkoutOutdoorSessionViewController: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
-    // MARK: Show the user's current location, animated with follow
+    // MARK: - Show the user's current location, animated with follow
     private func showUserLocation() {
         // Show the user's current location
         locationManager.requestWhenInUseAuthorization()
@@ -608,6 +621,44 @@ class WorkoutOutdoorSessionViewController: UIViewController {
             locationDisabledAlert.addAction(goToSettings)
             
             self.present(locationDisabledAlert, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Check the user's current progress
+    private func checkProgress() {
+        switch selectedGoal {
+            case .distance?:
+                let currentProgressInDistance = distance / distanceGoal
+                progressBar.progress = CGFloat(currentProgressInDistance.value)
+                lblProgressPercentage.text = String(Int(currentProgressInDistance.value * 100)) + "%"
+            case .time?:
+                let currentProgressInTime = Double(timeElapsed) / Double(timeGoal!)
+                progressBar.progress = CGFloat(currentProgressInTime)
+                lblProgressPercentage.text = String(Int(currentProgressInTime*100)) + "%"
+            
+                if Int(currentProgressInTime*100) == 50 {
+                    setupView(vc: viewHalfGoal)
+                }
+            case .open?:
+                print("")
+            case .none:
+                print("")
+        }
+    }
+    
+    private func calculateCalories(steps: Int) -> Double {
+        let burned = Double(steps) * 0.05
+        
+        if steps < 0 {
+            print("ERROR: A step can't be negative.")
+            return 0
+        }
+        if burned > 10000 {
+            print("ERROR: Maximum calorie burned should be below or equal to 10,000.")
+            return 10000
+        }
+        else {
+            return burned
         }
     }
     
@@ -661,7 +712,6 @@ class WorkoutOutdoorSessionViewController: UIViewController {
 
 // MARK: - Location Manager Delegate
 extension WorkoutOutdoorSessionViewController: CLLocationManagerDelegate {
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         for newLocation in locations {
             let howRecent = newLocation.timestamp.timeIntervalSinceNow

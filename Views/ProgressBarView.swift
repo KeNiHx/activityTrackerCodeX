@@ -19,8 +19,9 @@ class ProgressBarView: UIView {
             } else if newProgress < 0 {
                 _innerProgress = 0
             } else {
-                _innerProgress = progress
+                _innerProgress = newProgress
             }
+            setNeedsDisplay()
         }
         
         get {

@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class TodayViewController: UIViewController {
 
@@ -19,11 +22,21 @@ class TodayViewController: UIViewController {
     @IBOutlet weak var imgProfilePic: UIImageView!
     @IBOutlet weak var lblRandomMessage: UILabel!
     
+    @IBOutlet weak var imgActivity: UIImageView!
+    @IBOutlet weak var imgThisWeek: UIImageView!
+    
+    
     /**
      @var handle
      @brief The handler for the auth state listener, to allow cancelling later.
      */
     var handle: AuthStateDidChangeListenerHandle?
+    
+    /**
+     @var ref
+     @brief Creates a reference to the Firebase Database
+     */
+    var ref: DatabaseReference?
     
     /**
      @var messages
@@ -37,6 +50,15 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        ref = Database.database().reference()
+        
+        imgActivity.layer.shadowOpacity = 0.3
+        imgActivity.layer.shadowOffset = CGSize(width: 1, height: 2)
+        imgActivity.layer.shadowRadius = 15
+        
+        imgThisWeek.layer.shadowOpacity = 0.3
+        imgThisWeek.layer.shadowOffset = CGSize(width: 1, height: 2)
+        imgThisWeek.layer.shadowRadius = 15
     }
     
     // MARK: Function for setting up the UI
@@ -48,14 +70,22 @@ class TodayViewController: UIViewController {
         
         lblDate.text = formatter.string(from: currentDate).uppercased()
         
+        // Retrieve the user's profile pic
+        getProfilePhoto()
+        
         // Formatting the UIImageView for Profile Pic
         imgProfilePic.layer.cornerRadius = imgProfilePic.frame.height/2
-        imgProfilePic.layer.shadowOpacity = 0.3
+        imgProfilePic.layer.shadowOpacity = 0.2
         imgProfilePic.layer.shadowOffset = CGSize(width: 1, height: 1)
-        imgProfilePic.layer.shadowRadius = 3
+        imgProfilePic.layer.shadowRadius = 2
         
         // Setting the random message
         lblRandomMessage.text = messages[random]
+    }
+    
+    // MARK: - Retrieving user's profile photo from Firebase
+    private func getProfilePhoto() {
+        
     }
     
     // viewWillAppear
