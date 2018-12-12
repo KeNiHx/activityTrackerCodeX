@@ -1949,21 +1949,6 @@ These are optionals, you can skip if you prefer not to answer.</string>
             </objects>
             <point key="canvasLocation" x="3527" y="713"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="zlG-bi-yUJ">
-            <objects>
-                <viewController id="kGh-HH-Qeh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="81Y-xj-2Dz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="b0h-nO-GOq"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nKa-O8-7BX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4376.8000000000002" y="704.79760119940033"/>
-        </scene>
         <!--Register Required Info View Controller-->
         <scene sceneID="khE-Mk-hxf">
             <objects>
